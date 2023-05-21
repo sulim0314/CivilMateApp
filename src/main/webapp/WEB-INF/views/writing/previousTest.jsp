@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!-- taglib functions -------------------------------------------- -->
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!-- ------------------------------------------------------------- -->
-
 <style>
-.btn {
+.btn, #test-cha {
 	color: black;
 	display: inline-block;
 	padding: 8px 16px;
@@ -20,91 +16,98 @@
 	border: none;
 	z-index: 1;
 }
-
+#test-cha {
+	background-color: #B6EAFA;
+	font-size: 14px;
+}
 .btn:hover {
 	color: #fff;
 }
 
-.cha-title {
-	height: 24px;
-	font-size: 13px;
+#btn-testType {
+	font-size: 14px;
+}
+
+#btn-testType120 {
+	font-size: 14px;
+	background-color: #98EECC;
+}
+
+.title {
 	font-weight: bold;
-	color: green;
+	font-size: 20px;
+	color: #19A7CE;
+	text-align: center;
 	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.explain {
+	font-size: 12px;
+	color: gray;
+	text-align: center;
+	margin-bottom: 15px;
 }
 </style>
 </head>
 
 <body>
+	<div class="title">필기 기출문제</div>
+	<div class="explain">1. 응시할 회차를 선택해주세요.</div>
+	
+	<form action="" method="GET" class="range">
+		<select name="test-cha" id="test-cha">
+			<option value="">22년도 2회</option>
+			<option value="">22년도 1회</option>
+			<option value="">21년도 3회</option>
+			<option value="">21년도 2회</option>
+			<option value="">21년도 1회</option>
+			<option value="">20년도 4회</option>
+			<option value="">20년도 3회</option>
+			<option value="">20년도 1,2회</option>
+			<option value="">19년도 3회</option>
+			<option value="">19년도 2회</option>
+			<option value="">19년도 1회</option>
+			<option value="">18년도 3회</option>
+			<option value="">18년도 2회</option>
+			<option value="">18년도 1회</option>
+			<option value="">17년도 4회</option>
+			<option value="">17년도 2회</option>
+			<option value="">17년도 1회</option>
+			<option value="">16년도 4회</option>
+			<option value="">16년도 2회</option>
+			<option value="">16년도 1회</option>
+			<option value="">15년도 4회</option>
+			<option value="">15년도 2회</option>
+			<option value="">15년도 1회</option>
+			<option value="">14년도 4회</option>
+			<option value="">14년도 2회</option>
+			<option value="">14년도 1회</option>
+			<option value="">13년도 4회</option>
+			<option value="">13년도 2회</option>
+			<option value="">13년도 1회</option>
+			<option value="">12년도 4회</option>
+			<option value="">12년도 2회</option>
+			<option value="">12년도 1회</option>
+			<option value="">11년도 4회</option>
+			<option value="">11년도 2회</option>
+			<option value="">11년도 1회</option>
+			<option value="">10년도 4회</option>
+			<option value="">10년도 2회</option>
+			<option value="">10년도 1회</option>
+		</select>
+	</form>
 
-	<!-- <a href="#" class="btn-cha" >2023년 1회 cbt</a> -->
+	<div class="explain" style="margin-top: 15px">2. 시험 타입을 선택해주세요.</div>
 
-	<div class="cha-title">[ 2022년 기출문제 ]</div>
-	<!-- <a href="#" class="btn-cha" >2022년 3회 cbt</a> -->
-	<a href="${myctx}/selectTestType" class="btn">2022년 2회</a>
-	<a href="#" class="btn">2022년 1회</a>
-
-	<div class="cha-title">[ 2021년 기출문제 ]</div>
-	<a href="#" class="btn">2021년 3회</a>
-	<a href="#" class="btn">2021년 2회</a>
-	<a href="#" class="btn">2021년 1회</a>
-
-	<div class="cha-title">[ 2020년 기출문제 ]</div>
-	<a href="#" class="btn">2020년 4회</a>
-	<a href="#" class="btn">2020년 3회</a>
-	<a href="#" class="btn">2020년 1,2회 통합</a>
-
-	<div class="cha-title">[ 2019년 기출문제 ]</div>
-	<a href="#" class="btn">2019년 3회</a>
-	<a href="#" class="btn">2019년 2회</a>
-	<a href="#" class="btn">2019년 1회</a>
-
-	<div class="cha-title">[ 2018년 기출문제 ]</div>
-	<a href="#" class="btn">2018년 3회</a>
-	<a href="#" class="btn">2018년 2회</a>
-	<a href="#" class="btn">2018년 1회</a>
-
-	<div class="cha-title">[ 2017년 기출문제 ]</div>
-	<a href="#" class="btn">2017년 4회</a>
-	<a href="#" class="btn">2017년 2회</a>
-	<a href="#" class="btn">2017년 1회</a>
-
-	<div class="cha-title">[ 2016년 기출문제 ]</div>
-	<a href="#" class="btn">2016년 4회</a>
-	<a href="#" class="btn">2016년 2회</a>
-	<a href="#" class="btn">2016년 1회</a>
-
-	<div class="cha-title">[ 2015년 기출문제 ]</div>
-	<a href="#" class="btn">2015년 4회</a>
-	<a href="#" class="btn">2015년 2회</a>
-	<a href="#" class="btn">2015년 1회</a>
-
-	<div class="cha-title">[ 2014년 기출문제 ]</div>
-	<a href="#" class="btn">2014년 4회</a>
-	<a href="#" class="btn">2014년 2회</a>
-	<a href="#" class="btn">2014년 1회</a>
-
-	<div class="cha-title">[ 2013년 기출문제 ]</div>
-	<a href="#" class="btn">2013년 4회</a>
-	<a href="#" class="btn">2013년 2회</a>
-	<a href="#" class="btn">2013년 1회</a>
-
-	<div class="cha-title">[ 2012년 기출문제 ]</div>
-	<a href="#" class="btn">2012년 4회</a>
-	<a href="#" class="btn">2012년 2회</a>
-	<a href="#" class="btn">2012년 1회</a>
-
-	<div class="cha-title">[ 2011년 기출문제 ]</div>
-	<a href="#" class="btn">2011년 4회</a>
-	<a href="#" class="btn">2011년 2회</a>
-	<a href="#" class="btn">2011년 1회</a>
-
-	<div class="cha-title">[ 2010년 기출문제 ]</div>
-	<a href="#" class="btn">2010년 4회</a>
-	<a href="#" class="btn">2010년 2회</a>
-	<a href="#" class="btn">2010년 1회</a>
+	<a href="${myctx}/y2022c2Test" class="btn" id="btn-testType120">■
+		전체 시험보기 (120문제)</a>
+	<a href="#" class="btn" id="btn-testType">1. 응용역학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType">2. 측량학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType">3. 수리학 및 수문학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType">4. 철근콘크리트 및 강구조 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType">5. 토질 및 기초 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType">6. 상하수도공학 (20문제)</a>
 
 
 </body>
-
-

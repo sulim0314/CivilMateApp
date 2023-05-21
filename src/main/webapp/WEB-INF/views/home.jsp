@@ -39,8 +39,8 @@
 	<div style="height: 40px"></div>
 
 	<a href="${myctx}/prev_test" class="btn" id="btn1">필기 기출문제</a>
-	<button class="btn" id="btn1">필기 모의고사</button>
-	<button class="btn" id="btn1">필기 오답노트</button>
+	<a href="${myctx}/mockTest" class="btn" id="btn1">필기 모의고사</a>
+	<a href="${myctx}/wrongAnswer" class="btn" id="btn1">필기 오답노트</a>
 	<button class="btn" id="btn1">시험 결과 확인</button>
 	<button class="btn" id="btn2">실기 문제 등록</button>
 	<button class="btn" id="btn2">순서대로 시험보기</button>

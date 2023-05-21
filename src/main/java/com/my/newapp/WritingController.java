@@ -20,13 +20,18 @@ public class WritingController {
 		//WEB-INF/views/writingPrevTest/2022y2c.jsp
 	}
 	
-	@GetMapping("/selectTestType")
-	public String selectTestType() {
+	@GetMapping("/mockTest")
+	public String mockTest() {
 		
-		return "writingPrevTest/selectTestType";
-		//WEB-INF/views/writingPrevTest/selectTestType.jsp
+		return "writing/mockTest";
+		//WEB-INF/views/writing/mockTest.jsp
 	}
 	
-	
+	@GetMapping("/wrongAnswer")
+	public String wrongAnswer() {
+		
+		return "writing/wrongAnswer";
+		//WEB-INF/views/writing/wrongAnswer.jsp
+	}
 	
 }
