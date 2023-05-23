@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.title {
+	margin-top: 30px;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.questionBox {
+	/* border: 4px solid #DDE6ED; */
+	border: 4px solid #B6EAFA;
+	border-radius: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 13px;
+}
+
+.cha-title {
+	height: 24px;
+	font-size: 10px;
+	font-weight: bold;
+	color: gray;
+	margin-top: 15px;
+	color: gray;
+}
+
+.questions {
+	font-size: 13px; /* 원하는 글꼴 크기로 설정 */
+	margin-bottom: 15px;
+}
+
+.question-image {
+	width: 231px;
+	background-position: center;
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+
+/* 라디오 버튼 동그라미 !! */
+input[type="radio"] {
+	width: 18px;
+	height: 18px;
+	margin-right: 10px;
+}
+
+/* 라디오 버튼의 보기 내용에 대한 스타일 설정 */
+.choice-label {
+	font-size: 12px; /* 원하는 폰트 크기로 설정 */
+	vertical-align: middle;
+}
+
+.choices {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+/* 선택된 라디오 버튼 스타일 */
+input[type="radio"]:checked+label {
+	font-weight: bold;
+	color: blue;
+}
+
+/*과목 제목 스타일*/
+.subjectTitles {
+	background-color: #B6EAFA;
+	font-weight: bold;
+	border-radius: 6px;
+	width: 100%;
+	height: 38px;
+	margin: 35px auto 10px; /* 위쪽 20px 여백, 가로 중앙 정렬 */
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

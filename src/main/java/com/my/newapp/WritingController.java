@@ -34,4 +34,11 @@ public class WritingController {
 		//WEB-INF/views/writing/wrongAnswer.jsp
 	}
 	
+	@GetMapping("/sampleQ") // 나중에 없애기
+	public String sampleQ() {
+		
+		return "writingPrevTest/sampleQ";
+	}
+	
+	
 }
