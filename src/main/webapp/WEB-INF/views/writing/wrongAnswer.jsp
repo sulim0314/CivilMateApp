@@ -24,7 +24,7 @@
 
 <body>
 	<div class="title">필기 오답노트</div>
-	<div class="explain1">틀린 문제들을 확인하실 수 있습니다.</div>
+	<div class="explain1">저장한 문제를 확인하실 수 있습니다.</div>
 	<div class="explain2">??</div>
 
 

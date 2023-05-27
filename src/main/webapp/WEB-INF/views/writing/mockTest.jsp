@@ -25,7 +25,7 @@
 	font-size: 14px;
 }
 
-#btn-testType120 {
+#btn-testType1, #btn-testType120 {
 	font-size: 14px;
 	background-color: #98EECC;
 }
@@ -172,9 +172,11 @@
 
 	</form>
 
-	<!-- '전체 시험보기' 버튼을 클릭하면 해당 범위의 문제들을 구성하는 기능을 추가해야 합니다. -->
-	<a href="#" class="btn" id="btn-testType120" style="margin-top: 15px"
+	<a href="#" class="btn" id="btn-testType1" style="margin-top: 15px"
+		onclick="">■ 1문제씩 연습하기</a>
+	<a href="#" class="btn" id="btn-testType120" 
 		onclick="generateTest()">■ 전체 시험보기 (120문제)</a>
+		
 	<a href="#" class="btn" id="btn-testType">1. 응용역학 (20문제)</a>
 	<a href="#" class="btn" id="btn-testType">2. 측량학 (20문제)</a>
 	<a href="#" class="btn" id="btn-testType">3. 수리학 및 수문학 (20문제)</a>
