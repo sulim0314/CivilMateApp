@@ -115,29 +115,56 @@
 
 	<a href="#" class="btn" id="btn-testType1" onclick="practice()">■ 1문제씩 연습하기</a>
 	<a href="#" class="btn" id="btn-testType120" onclick="takeFullTest()">■ 전체 시험보기 (120문제)</a>
-	<a href="#" class="btn" id="btn-testType">1. 응용역학 (20문제)</a>
-	<a href="#" class="btn" id="btn-testType">2. 측량학 (20문제)</a>
-	<a href="#" class="btn" id="btn-testType">3. 수리학 및 수문학 (20문제)</a>
-	<a href="#" class="btn" id="btn-testType">4. 철근콘크리트 및 강구조 (20문제)</a>
-	<a href="#" class="btn" id="btn-testType">5. 토질 및 기초 (20문제)</a>
-	<a href="#" class="btn" id="btn-testType">6. 상하수도공학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType" onclick="take20Test1()">1. 응용역학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType" onclick="take20Test2()">2. 측량학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType" onclick="take20Test3()">3. 수리학 및 수문학 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType" onclick="take20Test4()">4. 철근콘크리트 및 강구조 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType" onclick="take20Test5()">5. 토질 및 기초 (20문제)</a>
+	<a href="#" class="btn" id="btn-testType" onclick="take20Test6()">6. 상하수도공학 (20문제)</a>
 
 	<script>
 		function practice() {
 			// 선택한 회차 값 가져오기
 			var testCha = document.getElementById("test-cha").value;
-			
 			// 선택한 회차에 해당하는 URL로 이동
 			window.location.href = "${myctx}/q1Test?testCha="+testCha; // 회차 알려주기	
 		}
 
 		function takeFullTest() {
-			// 선택한 회차 값 가져오기
 			var testCha = document.getElementById("test-cha").value;
-
-			// 선택한 회차에 해당하는 URL로 이동
-			window.location.href = "${myctx}/" + testCha;
+			window.location.href = "${myctx}/q120Test?testCha=" + testCha; // 회차 알려주기
 		}
+		
+		function take20Test1() {
+			var testCha = document.getElementById("test-cha").value;
+			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=1"  ; // 1과목
+		}
+		
+		function take20Test2() {
+			var testCha = document.getElementById("test-cha").value;
+			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=2"  ; // 2과목
+		}
+		
+		function take20Test3() {
+			var testCha = document.getElementById("test-cha").value;
+			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=3"  ; // 3과목
+		}
+		
+		function take20Test4() {
+			var testCha = document.getElementById("test-cha").value;
+			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=4"  ; // 4과목
+		}
+		
+		function take20Test5() {
+			var testCha = document.getElementById("test-cha").value;
+			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=5"  ; // 5과목
+		}
+		
+		function take20Test6() {
+			var testCha = document.getElementById("test-cha").value;
+			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=6"  ; // 6과목
+		}
+		
 	</script>
 
 

@@ -15,38 +15,21 @@ public class WritingController {
 	// 1문제 연습문제 ---------------------------
 	@GetMapping("/q1Test")
 	public String q1Test() {
-		// previousTest.jsp에서 22년도 2회 저장해놔야함
 		return "writingPrevTest/q1Test";
 	}
-	
-	// 몇년도 몇 회 시험 리스트 ---------------------------------------------
-	@GetMapping("/y2022c2")
-	public String y2022c2() {
-		
-		return "writingPrevTest/y2022c2";
-		//WEB-INF/views/writingPrevTest/2022y2c.jsp
+	// 20문제 --------------------------------
+	@GetMapping("/q20Test")
+	public String q20Test() {
+		return "writingPrevTest/q20Test";
 	}
-	@GetMapping("/y2022c1")
-	public String y2022c1() {
-		
-		return "writingPrevTest/y2022c1";
+	// 120문제 -------------------------------
+	@GetMapping("/q120Test")
+	public String q120Test() {
+		return "writingPrevTest/q120Test";
 	}
-	@GetMapping("/y2021c3")
-	public String y2021c3() {
-		
-		return "writingPrevTest/y2021c3";
-	}
-	
-	
-	
-	
-	
-	
-	
-	
 	// 몇년도 몇 회 시험 끝---------------------------------------------
 	// 모의고사
-	@GetMapping("/mockTest")
+	@GetMapping("/mockTest")//없애
 	public String mockTest() {
 		
 		return "writing/mockTest";
@@ -60,23 +43,22 @@ public class WritingController {
 		//WEB-INF/views/writing/wrongAnswer.jsp
 	}
 	
-	@GetMapping("/submitPage") // 나중에 없애기
+	@GetMapping("/submitPage")
 	public String submitPage() {
 		
 		return "writing/submitPage";
 	}
 	
-	
-	
-	
-	
+	@GetMapping("/submit20Page")
+	public String submit20Page() {
+		
+		return "writing/submit20Page";
+	}
+
 	@GetMapping("/sampleQ") // 나중에 없애기
 	public String sampleQ() {
 		
 		return "writingPrevTest/sampleQ";
 	}
-	
-	
-	
-	
+
 }

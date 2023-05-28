@@ -64,7 +64,7 @@ input[type="radio"]:checked+label {
 }
 
 /*과목 제목 스타일*/
-.subjectTitles {
+.subjectTitles,.typeTitle {
 	background-color: #B6EAFA;
 	font-weight: bold;
 	border-radius: 6px;

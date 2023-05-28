@@ -10,8 +10,7 @@
 	<!-- 문제를 표시할 컨테이너 -->
 	<div id="questionContainer"></div>
 		
-	<button class="btn-submit"
-		id="btn-submit" onclick="submitQuiz()">제출하기</button>
+	<button class="btn-submit" id="btn-submit" onclick="submitQuiz()">제출하기</button>
 	<!-- ------------------------------------ -->
 	<script>
 		
