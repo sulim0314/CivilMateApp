@@ -110,12 +110,12 @@
 <!-- ------------------------------------------------------------------------------- -->
 
 <style>
-.check, .next {
+.prev, .check, .next {
 	display: inline-block;
 	padding: 8px 16px;
 	text-decoration: none;
 	border-radius: 4px;
-	width: 49%;
+	width: 32%;
 	height: 40px;
 	text-align: center;
 	margin-bottom: 10px; /* 버튼 간격 조정을 위한 마진 값 */
@@ -124,14 +124,11 @@
 	background-color: #85CDFD;
 	font-size: 13px;
 }
-.next {
+.prev, .next {
 	background-color: #B6EAFA;
 }
 
-.check:hover {
-	color: #fff;
-}
-.next:hover {
+.prev:hover, .check:hover, .next:hover {
 	color: #fff;
 }
 
@@ -141,28 +138,27 @@
 	
 	<div id="questionContainer"></div>
 		  	
-	<button class="check" data-toggle="modal" data-target="#myModal">답 맞추기</button>
-	<button class="next">다음 문제 ▶</button>
-				
-	<!-- Button to Open the Modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button> -->
+	<button class="prev">◀ 이전</button>	  	
+	<!-- <button class="check" data-toggle="modal" data-target="#myModal" onclick="checkAnswer()">답 확인</button> -->
+	<button class="check" onclick="checkAnswer(); openModal()">답 확인</button>
+	<button class="next">다음 ▶</button>
 
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
+
+  	<!-- The Modal -->
+  	<div class="modal fade" id="myModal">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+    	
+      	<div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">정답임 틀렸음</h4>
+          <h4 class="modal-title" id="modalTitle"></h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-          정답은 ~~~~~
+           <p id="modalBody"></p>
         </div>
         
         <!-- Modal footer -->
@@ -170,39 +166,73 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기~</button>
         </div>
         
-      </div>
+      	</div>
+      	
     </div>
-  </div>
-	
-	
-	
-	
-	
-	
-	<script> 
-		// 랜덤한 문제 번호 생성
-	    var randomQuestionIndex = Math.floor(Math.random() * questions.length); // 0~119
-	
-	    // 랜덤한 문제 가져오기
-	    var randomQuestion = questions[randomQuestionIndex];
-	
-	    // 문제 randomQuestion.question
-	    // 보기 randomQuestion.choices
-	    // 정답 randomQuestion.correctAnswer
-	
-	    function showQuestion() {
-			var questionContainer = document.getElementById("questionContainer");
-			questionContainer.innerHTML = ""; // 문제 컨테이너 초기화
+  	</div>
 
-			var questionDiv = createQuestionDiv(randomQuestionIndex);
-			
-			questionContainer.appendChild(questionDiv);
-			
-			$(".next").click(function() {
-			    location.reload();
-			});
+	<script> 
+		var randomIndexArr = []; // 200개 들어가있음
+		var currentIndex = 0; // 화면에 표시하는 문제 (randomIndexArr[currentIndex])
+		
+		for (var i = 0; i < 200; i++) {
+		   	var randomIndex = Math.floor(Math.random() * questions.length);
+		    randomIndexArr.push(randomIndex);
 		}
 
+		function showQuestion() {
+		    var questionContainer = document.getElementById("questionContainer");
+		    questionContainer.innerHTML = "";
+
+		    var questionDiv = createQuestionDiv(randomIndexArr[currentIndex]);
+
+		    questionContainer.appendChild(questionDiv);
+		}
+		
+		// 이전 버튼
+		$(".prev").click(function() {
+		    if (currentIndex > 0) {
+		      currentIndex--;
+		      showQuestion();
+		    }
+		});
+	
+		// 다음 버튼
+		$(".next").click(function() {
+		    currentIndex++;
+		    if (currentIndex >= randomIndexArr.length) {
+		      location.reload(); // currentIndex가 배열 길이 이상이면 페이지 리로드
+		    } else {
+		      showQuestion();
+		    }
+		});
+	
+		// 랜덤한 문제, 보기, 답 가져오기
+	    var randomQuestion = questions[randomIndexArr[currentIndex]];
+		
+	    function openModal() {
+	    	$('#myModal').modal('show');
+	    }
+	    
+	    function checkAnswer() {
+	        var selectedAnswer = selectedAnswers[randomIndexArr[currentIndex]];
+	        var questionIndex = randomIndexArr[currentIndex];
+	        var correctAnswer = questions[questionIndex].correctAnswer;
+
+	        var modalTitleElement = document.getElementById("modalTitle");
+	        var modalBodyElement = document.getElementById("modalBody");
+
+	        if ((parseInt(selectedAnswer) + 1) === correctAnswer) {
+	            modalTitleElement.innerHTML = "정답입니다 !";
+	        } else {
+	            modalTitleElement.innerHTML = "틀렸습니다 !";
+	        }
+
+	        modalBodyElement.innerHTML = "정답은 " + correctAnswer + "번입니다.";
+	    }
+	    
+	    
+	    
 		function createChoiceInput(questionIndex, choiceIndex) {
 			var choiceInput = document.createElement("input");
 			choiceInput.type = "radio";
@@ -224,8 +254,6 @@
 
 			return choiceLabelElement;
 		}
-
-		// ★★★★★★★★★★★★★★★★★ 새로 넣었음 ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
 		// 선택한 답을 저장하는 배열
 		var selectedAnswers = [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9];

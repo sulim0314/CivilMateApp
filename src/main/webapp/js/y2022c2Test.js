@@ -665,7 +665,7 @@
 					question : "지름 400mm, 길이 1000m인 원형 철근 콘크리트 관에 물이 가득 차 흐르고 있다. 이 관로 시점의 수두가 50m 라면 관로 종점의 수압(kgf/cm²)은? (단, 손실수두는 마찰손실 수두만을 고려하며 마찰계수(f) = 0.05, 유속은 Manning 공식을 이용하여 구하고 조도계수(n) = 0.013, 동수경사(I) = 0.001 이다.)",
 					choices : [ "2.92 kgf/cm²", "3.28 kgf/cm²", "4.83 kgf/cm²",
 							"5.31 kgf/cm²" ],
-					correctAnswer : 0
+					correctAnswer : 3
 				},
 				{
 					question : "교차연결(cross connection)에 대한 설명으로 옳은 것은?",
