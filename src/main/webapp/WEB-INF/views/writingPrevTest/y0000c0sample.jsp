@@ -17,7 +17,7 @@
 		var totalQuestions = 120; // 총 문제 수
 
 		var questions = [
-				{
+				{//1
 					question : "",
 					choices : [ "", "", "", "" ],
 					correctAnswer : 0

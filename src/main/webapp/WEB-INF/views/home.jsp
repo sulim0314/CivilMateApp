@@ -75,10 +75,10 @@
 	</div>
 	
 	<div class="box2">
-	<button class="btn" id="btn2">실기 문제 등록</button>
-	<button class="btn" id="btn2">실기 시험보기</button>
-	<!-- <button class="btn" id="btn2">랜덤으로 시험보기</button> -->
-	<!-- <button class="btn" id="btn2">실기 오답노트</button> -->
+		<a href="${myctx}/qnaRegister" class="btn" id="btn2">실기 문제 등록</a>
+		<a href="#" class="btn" id="btn2">실기 시험보기</a>
+		<!-- <button class="btn" id="btn2">랜덤으로 시험보기</button> -->
+		<!-- <button class="btn" id="btn2">실기 오답노트</button> -->
 	</div>
 </body>
 

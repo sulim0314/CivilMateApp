@@ -53,8 +53,16 @@ public class WritingController {
 	public String submit20Page() {
 		
 		return "writing/submit20Page";
-	}
+	} //-----------------------------------------
 
+	@GetMapping("/qnaRegister")
+	public String qnaRegister() {
+		
+		return "practical/qnaRegister";
+	}
+	
+	
+	
 	@GetMapping("/sampleQ") // 나중에 없애기
 	public String sampleQ() {
 		
