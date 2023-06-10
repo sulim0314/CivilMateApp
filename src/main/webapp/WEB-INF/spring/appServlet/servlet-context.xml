@@ -27,8 +27,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.my.newapp" />
-	
+	<!-- 스캔 대상 패키지를 등록 ================================== -->
+	<context:component-scan base-package="com.my.newapp,com.wrong.controller,com.wrong.model" />
 	
 	
 </beans:beans>
