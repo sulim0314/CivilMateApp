@@ -1,0 +1,31 @@
+package com.wrong.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import com.wrong.model.WrongVO;
+
+@Repository
+public interface WrongMapper {
+	
+	int insertWrongData(WrongVO wrong);
+	
+	/*
+	 * int insertBoard(BoardVO board); // 게시목록 가져오기 List<BoardVO>
+	 * selectBoardAll(Map<String,Integer> map); List<BoardVO>
+	 * selectBoardAllPaging(PagingVO paging);
+	 * 
+	 * 
+	 * int getTotalCount();//총 게시글 수 가져오기 int getTotalCountPaging(PagingVO
+	 * paging);//총 게시글수 or 검색한 총 게시글 수 가져오기
+	 * 
+	 * // 글번호에 해당하는 글 가져오기 BoardVO selectBoardByIdx(int num); // 조회수 증가하기 int
+	 * updateReadnum(int num);
+	 * 
+	 * 
+	 * int deleteBoard(int num); int updateBoard(BoardVO board);
+	 * 
+	 * // 답변형(계층형) 게시판에서 답변글 달기 int rewriteBoard(BoardVO board); //[답변형] BoardVO
+	 * selectRefLevSunbun(int num);//[답변형] int updateSunbun(BoardVO parent);//[답변형]
+	 */
+}

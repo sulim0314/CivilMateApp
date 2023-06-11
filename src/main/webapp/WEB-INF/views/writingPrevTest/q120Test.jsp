@@ -201,6 +201,26 @@
 		// 선택한 답을 저장하는 배열
 		var selectedAnswers = [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9];
 		
+		// 결과 보낼 배열------------------
+		var sendWrongNum = [1, 2, 3, 7, 10, 333, 234, 23, 6];
+		var sendWrongAns = [3, 3, 3, 3, 3, 3, 3, 3, 3];
+		var sendWrongNumString = JSON.stringify(sendWrongNum);
+		var sendWrongAnsString = JSON.stringify(sendWrongAns);
+		
+		// 서버로 데이터 전송
+		$.ajax({
+		  url: '/saveWrongData',
+		  type: 'POST',
+		  data: { sendWrongNum: sendWrongNumString, sendWrongAns: sendWrongAnsString },
+		  success: function(response) {
+		    console.log('데이터 전송 성공');
+		  },
+		  error: function(xhr, status, error) {
+		    console.error('데이터 전송 실패:', error);
+		  }
+		});
+		
+		
 		// 각 과목의 점수를 저장하는 변수들
 		var score1 = 0;
 		var score2 = 0;
@@ -223,9 +243,6 @@
 			  
 			  return 5; // 정답인 경우 5점 반환
 		  } else {
-			  
-			  
-			  
 			  
 			  
 		      return 0; // 오답인 경우 0점 반환
