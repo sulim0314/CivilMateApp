@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 //영속성 계층(Persistence Layer): @Repository
 //[주의] servlet-context.xml에 component-scan대상으로 패키지 등록해야 함
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wrong.mapper.WrongMapper;
 import com.wrong.model.WrongVO;
@@ -22,7 +25,12 @@ public class WrongServiceImpl implements WrongService {
 
 		return this.wrongMapper.insertWrongData(wrong);
 	}
-	
+
+	@Override
+	public int insertWrongData(String sendWrongNum, String sendWrongAns) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	

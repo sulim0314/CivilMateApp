@@ -211,7 +211,12 @@
 		$.ajax({
 		  url: '/saveWrongData',
 		  type: 'POST',
-		  data: { sendWrongNum: sendWrongNumString, sendWrongAns: sendWrongAnsString },
+		  dataType : 'json',
+		  contentType : "application/json;charset=UTF-8",
+		  data: JSON.stringify({
+			    sendWrongNum: sendWrongNum,
+			    sendWrongAns: sendWrongAns
+			    }),
 		  success: function(response) {
 		    console.log('데이터 전송 성공');
 		  },

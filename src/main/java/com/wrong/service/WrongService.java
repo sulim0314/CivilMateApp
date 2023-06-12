@@ -1,23 +1,14 @@
 package com.wrong.service;
 
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 import com.wrong.model.WrongVO;
 
-
+@Service
 public interface WrongService {
-	
-    int insertWrongData(WrongVO wrong);
-    
-}
-//	int getTotalCount();
-	
-//	List<MemoVO> listMemo(int start, int end);
-//	
-//	int deleteMemo(int no);
-//	int updateMemo(MemoVO memo);
-//	
-//	MemoVO getMemo(int no);
-	
-	
 
+	int insertWrongData(WrongVO wrong);
+	
+	int insertWrongData(String sendWrongNum, String sendWrongAns);
+
+}
