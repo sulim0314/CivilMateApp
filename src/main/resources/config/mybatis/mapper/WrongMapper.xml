@@ -8,8 +8,8 @@
 		<selectKey keyProperty="no" resultType="_int" order="BEFORE">
 		 	SELECT sendwrong_seq.NEXTVAL FROM dual
 	    </selectKey>
-	    INSERT INTO sendwrong (no, wrongnum, wrongans)
-	    VALUES (#{no}, #{wrongNum}, #{wrongAns})
+	    INSERT INTO sendwrong (no, wrongnum)
+	    VALUES (#{no}, #{wrongNum})
 	</insert>
 	
 </mapper>

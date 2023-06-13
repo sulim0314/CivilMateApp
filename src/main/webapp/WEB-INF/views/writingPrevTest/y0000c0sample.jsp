@@ -574,7 +574,7 @@
 				questionDiv.appendChild(lineBreak);
 
 			} else {
-				var imagePath = "/newapp/images/y2022c2Images/y2022c2_"
+				var imagePath = "/images/y2022c2Images/y2022c2_"
 						+ (index + 1) + ".png";
 				questionImageElement.src = imagePath;
 				questionDiv.appendChild(questionImageElement);

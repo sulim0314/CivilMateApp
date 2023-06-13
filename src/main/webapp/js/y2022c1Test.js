@@ -536,7 +536,7 @@
 				|| afterIndex == 73 || afterIndex == 74 || afterIndex == 79 || afterIndex == 80 || afterIndex == 87
 				|| afterIndex == 92 || afterIndex == 95 || afterIndex == 111 ) {
 
-				var imagePath = "/newapp/images/y2022c1Images/y2022c1_"
+				var imagePath = "/images/y2022c1Images/y2022c1_"
 						+ (index + 1) + ".png";
 				questionImageElement.src = imagePath;
 				questionDiv.appendChild(questionImageElement);

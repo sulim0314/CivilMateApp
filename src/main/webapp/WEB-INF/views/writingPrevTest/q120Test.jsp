@@ -202,10 +202,16 @@
 		var selectedAnswers = [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9];
 		
 		// 결과 보낼 배열------------------
-		var sendWrongNum = [1, 2, 3, 7, 10, 333, 234, 23, 6];
+/* 		var sendWrongNum = [1, 2, 3, 7, 10, 333, 234, 23, 6];
 		var sendWrongAns = [3, 3, 3, 3, 3, 3, 3, 3, 3];
 		var sendWrongNumString = JSON.stringify(sendWrongNum);
-		var sendWrongAnsString = JSON.stringify(sendWrongAns);
+		var sendWrongAnsString = JSON.stringify(sendWrongAns); */
+		
+		/* var wrongData = {
+				wrongNum: "[1, 2, 3, 7, 10, 333, 234, 23, 6]"
+		}; */
+		
+		var wrongNum = "[1, 2, 3, 7, 10, 333, 234, 23, 6]";
 		
 		// 서버로 데이터 전송
 		$.ajax({
@@ -213,10 +219,7 @@
 		  type: 'POST',
 		  dataType : 'json',
 		  contentType : "application/json;charset=UTF-8",
-		  data: JSON.stringify({
-			    sendWrongNum: sendWrongNum,
-			    sendWrongAns: sendWrongAns
-			    }),
+		  data: JSON.stringify({wrongNum: wrongNum}),
 		  success: function(response) {
 		    console.log('데이터 전송 성공');
 		  },
