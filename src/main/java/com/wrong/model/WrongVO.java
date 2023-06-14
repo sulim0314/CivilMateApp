@@ -9,6 +9,7 @@ public class WrongVO {
 	
 	private int no;
 	private String wrongNum;
+	private String wrongAns;
 	
 }
 

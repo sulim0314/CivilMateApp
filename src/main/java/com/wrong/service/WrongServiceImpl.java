@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.wrong.mapper.WrongMapper;
 import com.wrong.model.WrongVO;
 
-@Service
+@Service("wrongService")
 @Repository
 public class WrongServiceImpl implements WrongService {
 	
@@ -20,11 +20,19 @@ public class WrongServiceImpl implements WrongService {
 	private WrongMapper wrongMapper;
 
 	@Override
-	public int saveWrongData(WrongVO wrong) {
+	public int insertWrongData(WrongVO wrong) {
 
-		String wrongNum = wrong.getWrongNum();
-		wrong.setWrongNum(wrongNum);
+		wrong.setWrongNum(wrong.getWrongNum());
+		wrong.setWrongAns(wrong.getWrongAns());
 		
 		return this.wrongMapper.insertWrongData(wrong);
 	}
+
+	@Override
+	public WrongVO selectWrongData() {
+		return this.wrongMapper.selectWrongData();
+	}
+	
+
+	
 }

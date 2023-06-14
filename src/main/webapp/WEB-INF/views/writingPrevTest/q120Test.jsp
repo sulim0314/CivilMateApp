@@ -202,32 +202,8 @@
 		var selectedAnswers = [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9];
 		
 		// 결과 보낼 배열------------------
-/* 		var sendWrongNum = [1, 2, 3, 7, 10, 333, 234, 23, 6];
-		var sendWrongAns = [3, 3, 3, 3, 3, 3, 3, 3, 3];
-		var sendWrongNumString = JSON.stringify(sendWrongNum);
-		var sendWrongAnsString = JSON.stringify(sendWrongAns); */
-		
-		/* var wrongData = {
-				wrongNum: "[1, 2, 3, 7, 10, 333, 234, 23, 6]"
-		}; */
-		
-		var wrongNum = "[1, 2, 3, 7, 10, 333, 234, 23, 6]";
-		
-		// 서버로 데이터 전송
-		$.ajax({
-		  url: '/saveWrongData',
-		  type: 'POST',
-		  dataType : 'json',
-		  contentType : "application/json;charset=UTF-8",
-		  data: JSON.stringify({wrongNum: wrongNum}),
-		  success: function(response) {
-		    console.log('데이터 전송 성공');
-		  },
-		  error: function(xhr, status, error) {
-		    console.error('데이터 전송 실패:', error);
-		  }
-		});
-		
+		var wrongNum = [];
+		var wrongAns = [];
 		
 		// 각 과목의 점수를 저장하는 변수들
 		var score1 = 0;
@@ -252,44 +228,74 @@
 			  return 5; // 정답인 경우 5점 반환
 		  } else {
 			  
-			  
+			  wrongNum.push(questionIndex + 1); // 틀린 문제 번호를 배열에 추가 (index 말고)
+			  wrongAns.push(parseInt(choiceIndex) + 1); // 체크한 답을 배열에 추가 (index 말고)
 		      return 0; // 오답인 경우 0점 반환
 		  }
 		} // calculateScore(questionIndex, choiceIndex) ---------------
-
+			
+		
+		
 		// 퀴즈 제출 처리 로직
 		function submitQuiz() {
+			
+			// ----------- 점수 계산-------------------
 		  	var totalScore = 0; // 총점 초기화
 
-		  for (var i = 0; i < selectedAnswers.length; i++) {
-		    var questionIndex = i;
-		    var choiceIndex = selectedAnswers[i];
+		  	for (var i = 0; i < selectedAnswers.length; i++) {
+		    	var questionIndex = i;
+		    	var choiceIndex = selectedAnswers[i];
 
-		    // 문제 범위에 따라 해당하는 과목의 점수를 계산
-		    if (questionIndex >= 0 && questionIndex < 20) {
-		      score1 += calculateScore(questionIndex, choiceIndex);
-		    } else if (questionIndex >= 20 && questionIndex < 40) {
-		      score2 += calculateScore(questionIndex, choiceIndex);
-		    } else if (questionIndex >= 40 && questionIndex < 60) {
-		      score3 += calculateScore(questionIndex, choiceIndex);
-		    } else if (questionIndex >= 60 && questionIndex < 80) {
-		      score4 += calculateScore(questionIndex, choiceIndex);
-		    } else if (questionIndex >= 80 && questionIndex < 100) {
-		      score5 += calculateScore(questionIndex, choiceIndex);
-		    } else if (questionIndex >= 100 && questionIndex < 120) {
-		      score6 += calculateScore(questionIndex, choiceIndex);
-		    }
-		  }
-
-		  // submitPage.jsp로 점수 데이터 전달
-		  var testCha = "<%= testCha %>";
-		  var url = "${myctx}/submitPage?title="+ testCha +
-		    "&score1=" + score1 + "&score2=" + score2
-		    + "&score3=" + score3 + "&score4=" + score4 + "&score5="
-		    + score5 + "&score6=" + score6;
+			    // 문제 범위에 따라 해당하는 과목의 점수를 계산
+			    if (questionIndex >= 0 && questionIndex < 20) {
+			      score1 += calculateScore(questionIndex, choiceIndex);
+			    } else if (questionIndex >= 20 && questionIndex < 40) {
+			      score2 += calculateScore(questionIndex, choiceIndex);
+			    } else if (questionIndex >= 40 && questionIndex < 60) {
+			      score3 += calculateScore(questionIndex, choiceIndex);
+			    } else if (questionIndex >= 60 && questionIndex < 80) {
+			      score4 += calculateScore(questionIndex, choiceIndex);
+			    } else if (questionIndex >= 80 && questionIndex < 100) {
+			      score5 += calculateScore(questionIndex, choiceIndex);
+			    } else if (questionIndex >= 100 && questionIndex < 120) {
+			      score6 += calculateScore(questionIndex, choiceIndex);
+			    }
+		  	}
+					
+		  	
+		 // 틀린 문제 및 틀린 답 배열 전송하기 -------------------
+			wrongNum = JSON.stringify(wrongNum); // String으로 바꾸기
+			wrongAns = JSON.stringify(wrongAns);
+			
+			// 서버로 데이터 전송
+			$.ajax({
+			  url: '/insertWrongData',
+			  type: 'POST',
+			  dataType : 'json',
+			  contentType : "application/json;charset=UTF-8",
+			  data: JSON.stringify({wrongNum: wrongNum, wrongAns:wrongAns}),
+			  success: function(response) {
+			    console.log('데이터 전송 성공');
+			  },
+			  error: function(xhr, status, error) {
+			    console.error('데이터 전송 실패:', error);
+			  }
+			});
+		  	
+		  	
+		  	// submitPage.jsp로 점수 데이터 전달
+		  	var testCha = "<%= testCha %>";
+		  	var url = "${myctx}/submitPage?title="+ testCha +
+					    "&score1=" + score1 + "&score2=" + score2
+					    + "&score3=" + score3 + "&score4=" + score4 + "&score5="
+					    + score5 + "&score6=" + score6;
+			  
+		  	// 페이지 이동
+		  	window.location.href = url;
 		  
-		  // 페이지 이동
-		  window.location.href = url;
+		  	
+		  	
+		  
 		} // submitQuiz()------------------------
 		
 		

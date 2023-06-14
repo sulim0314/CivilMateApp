@@ -8,9 +8,14 @@
 		<selectKey keyProperty="no" resultType="_int" order="BEFORE">
 		 	SELECT sendwrong_seq.NEXTVAL FROM dual
 	    </selectKey>
-	    INSERT INTO sendwrong (no, wrongnum)
-	    VALUES (#{no}, #{wrongNum})
+		    INSERT INTO sendwrong (no, wrongnum, wrongans)
+		    VALUES (#{no}, #{wrongNum}, #{wrongAns})
 	</insert>
+	
+	<select id="selectWrongData" resultType="Wrong">
+			SELECT * FROM sendwrong WHERE NO = (SELECT MAX(NO) FROM sendwrong)
+	</select>
+	
 	
 </mapper>
 

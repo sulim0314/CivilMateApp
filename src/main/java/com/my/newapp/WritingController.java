@@ -43,11 +43,11 @@ public class WritingController {
 		//WEB-INF/views/writing/wrongAnswer.jsp
 	}
 	
-	@GetMapping("/submitPage")
-	public String submitPage() {
-		
-		return "writing/submitPage";
-	}
+//	@GetMapping("/submitPage")
+//	public String submitPage() {
+//		
+//		return "writing/submitPage";
+//	}
 	
 	@GetMapping("/submit20Page")
 	public String submit20Page() {
