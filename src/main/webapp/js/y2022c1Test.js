@@ -555,7 +555,7 @@
 			for (var j = 0; j < questionData.choices.length; j++) {
 				var choiceLabel = questionData.choices[j];
 				var choiceInput = createChoiceInput(index, j);
-				var choiceLabelElement = createChoiceLabel(choiceLabel);
+				var choiceLabelElement = createChoiceLabel(choiceLabel,index,j);
 
 				choicesElement.appendChild(choiceInput);
 				choicesElement.appendChild(choiceLabelElement);

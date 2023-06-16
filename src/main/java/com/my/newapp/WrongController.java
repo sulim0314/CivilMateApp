@@ -25,7 +25,7 @@ public class WrongController {
 	@ResponseBody
 	public void insertWrongData(@RequestBody WrongVO wrong) {
 		
-		System.out.println("ssss");
+		System.out.println("틀린 데이터");
 		
 		System.out.println(wrong.getWrongNum());
 		System.out.println(wrong.getWrongAns());
@@ -36,7 +36,7 @@ public class WrongController {
 		wrongService.insertWrongData(wrong);
 	}
 	
-	@GetMapping(value="/submitPage")
+	@GetMapping(value="/confirmPage")
 	public String selectWrongData(Model m) {
 		
 	    // 데이터베이스에서 데이터 가져오기
@@ -45,7 +45,7 @@ public class WrongController {
 	    m.addAttribute("wrongNum", wrongData.getWrongNum());
 	    m.addAttribute("wrongAns", wrongData.getWrongAns());
 	    
-	    return "writing/submitPage";
+	    return "writing/confirmPage";
 	}
 
 } 

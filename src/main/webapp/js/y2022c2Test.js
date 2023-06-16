@@ -824,9 +824,9 @@
 
 			for (var j = 0; j < questionData.choices.length; j++) {
 				//var choiceLabel = " " + (j + 1) + ") " + questionData.choices[j];
-				var choiceLabel = questionData.choices[j];
-				var choiceInput = createChoiceInput(index, j);
-				var choiceLabelElement = createChoiceLabel(choiceLabel);
+				var choiceLabel = questionData.choices[j]; // String 보기 4개
+				var choiceInput = createChoiceInput(index,j); 
+				var choiceLabelElement = createChoiceLabel(choiceLabel,index,j); // 이거만 고침
 
 				choicesElement.appendChild(choiceInput);
 				choicesElement.appendChild(choiceLabelElement);

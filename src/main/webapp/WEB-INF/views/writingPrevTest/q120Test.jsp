@@ -187,7 +187,7 @@
 			return choiceInput;
 		}
 
-		function createChoiceLabel(label) {
+		function createChoiceLabel(label, questionIndex, j) {
 
 			var choiceLabelElement = document.createElement("label");
 			choiceLabelElement.innerHTML = label;
