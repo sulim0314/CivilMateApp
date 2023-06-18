@@ -4,11 +4,35 @@
 <style>
 .title {
 	font-size: 14px;	
-	color: #F97B22;
+	color: #E966A0;
 }
 .questionBox {
-	border: 4px solid #FFE7CE;
+	border: 4px solid #F4D3D3;
 }
+
+.main {
+	color: black;
+	display: inline-block;
+	padding: 8px 16px;
+	border: none;
+	background-color: #F4D3D3;
+	border-radius: 4px;
+	width: 100%;
+	height: 1cm;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 15px;	
+}
+
+.main:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+
 </style>
 
 <!-- js 참조 (questions배열 + 이미지 여부) --------------------------------- -->
@@ -156,12 +180,14 @@
 </form>
 
 
+
+
 <body onload="showQuestion()">
 
 	<div class="title"><%= testTitle %></div>
 	<div id="questionContainer"></div>
-		
-	<!-- ------------------------------------ -->
+	<a href="${myctx}/" class="main">메인으로</a>
+<!-- ------------------------------------ -->
 	<script>
 	
 	var wrongNum = '${wrongNum}';

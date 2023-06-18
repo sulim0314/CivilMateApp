@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WritingController {
-	
+
 	@GetMapping("/prev_test")
 	public String prevTest() {
 		

@@ -77,18 +77,24 @@
 	border: none;
 	background-color: #B6EAFA;
 	border-radius: 4px;
-	width: 100%;
+	width: 49%;
 	height: 1cm;
 	text-align: center;
-	margin-top: 15px;
-	margin-bottom: 10px;
+	margin-top: 25px;
+	margin-bottom: 13px;
 	font-weight: bold;
 	text-decoration: none;
+	font-size: 14px;
 }
 
 .btn-confirm:hover {
 	color: #fff;
 	text-decoration: none;
+}
+
+.ex {
+	color: gray;
+	font-size: 10px;
 }
 </style>
 
@@ -250,10 +256,11 @@
 	}
 	%>
 	
-	<button class="btn-confirm" id="btn-confirm" onclick="sendTestCha()">시험 결과 저장 | 오답 확인</button>
-	<div>시험 결과를 저장하면, 시험 결과 확인 페이지에서 확인하실 수 있습니다.</div>
-	<div>** 로그인해야 => 시험 결과 저장/ 오답 확인/ 실기문제 가능</div>
-	<div>** 안하면? 필기 기출문제 풀고,점수 확인만 가능(오답 확인 불가)</div>
+	<button class="btn-confirm">시험 결과 저장</button>
+	<button class="btn-confirm" id="btn-confirm" onclick="sendTestCha()">오답 확인</button>
+	
+	<div class="ex">* 시험 결과를 저장하면, 시험 결과 확인 페이지에서 확인하실 수 있습니다.</div>
+	
 	
 <script>
 		function sendTestCha() {
