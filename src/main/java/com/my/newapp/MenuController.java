@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MenuController {
 	
-	@GetMapping("/join")
-	public String join() {
-		
-		return "member/join";
-	}
+//	@GetMapping("/join")
+//	public String join() {
+//		
+//		return "member/join";
+//	}
 	
 	@GetMapping("/login")
 	public String login() {

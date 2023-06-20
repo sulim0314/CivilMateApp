@@ -4,9 +4,9 @@
  
 let win=null;
 
-function open_idcheck(){
-	win=window.open("idCheck","idCheck","width=400, height=400, left=200, top=200");
-}//--------------------------
+//function open_idcheck(){
+//	win=window.open("idCheck","idCheck","width=400, height=400, left=200, top=200");
+//}//--------------------------
 
 // 아이디 체크 후 갖고오기
 function set_id(uid){ 
@@ -22,42 +22,48 @@ function set_id(uid){
 
 //아이디 중복체크 및 가능 여부
 function id_check(){
-	if(!idf.userid.value){
-		alert('아이디를 입력해야 해요');
-		idf.userid.focus();
+	if(!mf.userid.value){
+		openModal();
+		modalBodyElement.innerHTML = "아이디를 입력해주세요.";
+		mf.userid.focus();
 		return;
 	}
-	if(!isUserid(idf.userid)){
-		alert('아이디는 영문자,숫자,_,!로 4~20자까지 가능해요');
-		idf.userid.select();
+	if(!isUserid(mf.userid)){
+		openModal();
+		modalBodyElement.innerHTML = "아이디는 영문자,숫자,_,!만 사용하여 4자 이상 20자 이내로 입력해주세요.";
+		mf.userid.select();
 		return;
 	}
-	idf.submit();
+	mf.submit();
 }//-------------------------
 
 // 이름, 아이디, 비밀번호, 비번일치, 이메일 체크
 function member_check(){
 	if(!isKor(mf.name)){
-		alert('이름은 한글로 2자 이상 가능해요');
+		openModal();
+		modalBodyElement.innerHTML = "이름은 한글로 2자 이상 입력해주세요.";
 		mf.name.select();
 		return;
 	}
 	//*아이디는 영문자,숫자,_,!만 사용 가능해요
 	if(!isUserid(mf.userid)){
-		alert('아이디는 영문자,숫자,_,!만 4~20자까지 가능해요');
+		openModal();
+		modalBodyElement.innerHTML = "아이디는 영문자,숫자,_,!만 사용하여 4자 이상 20자 이내로 입력해주세요.";
 		mf.userid.select();
 		return;
 	}
 	
 	//비밀번호는 문자,숫자,!,_포함해서 4~20자 이내
-	if(mf.mode.value!=9 && !isPasswd(mf.pwd)){
-		alert('비밀번호는 문자,숫자,!_포함해서 4~20자 이내여야 해요');
+	if(!isPasswd(mf.pwd)){
+		openModal();
+		modalBodyElement.innerHTML = "비밀번호는 영문,숫자,_,!를 혼합하여 4자 이상 20자 이내로 입력해주세요.";
 		mf.pwd.select();
 		return;
 	}
 	//비번,비번확인 값 일치 여부 체크
 	if(mf.pwd.value!= mf.pwd2.value){
-		alert('비밀번호와 비밀번호 확인값이 달라요');
+		openModal();
+		modalBodyElement.innerHTML = "비밀번호와 비밀번호 확인값을 확인해주세요.";
 		mf.pwd2.select();
 		return;
 	}
@@ -68,13 +74,13 @@ function member_check(){
 	asdf.my@naver.com
 	asdf12@google.co.kr
 	*/
-	/*
+	
 	if(!isEmail(mf.email)){
-		alert('이메일 형식에 맞지 않아요');
+		openModal();
+		modalBodyElement.innerHTML = "이메일을 형식에 맞게 입력해주세요.";
 		mf.email.select();
 		return;
 	}
-	*/
 	
 	mf.submit();//서버로 전송
 	

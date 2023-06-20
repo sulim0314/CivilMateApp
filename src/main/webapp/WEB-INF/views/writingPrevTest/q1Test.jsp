@@ -153,7 +153,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title" id="modalTitle"></h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
         </div>
         
         <!-- Modal body -->
@@ -163,7 +163,7 @@
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기~</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size: 14px;">확인</button>
         </div>
         
       	</div>

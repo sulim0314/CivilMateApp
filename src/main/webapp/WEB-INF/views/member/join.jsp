@@ -64,7 +64,7 @@ input[type="text"] {
 	color: #92A9BD;
 	font-size: 8px;
 	margin-top: 3px;
-	margin-left: 38%;
+	margin-left: 30%;
 	margin-bottom: 20px;
 }
 ::placeholder {
@@ -74,9 +74,9 @@ input[type="text"] {
 
 <div class="container">
 	<div class="title">
-		<b>회원 정보</b>
+		<b>회원가입</b>
 	</div>
-	<form action="/join" method="POST">
+	<form name="mf" action="/join" method="POST">
 
 		<hr>
 		<div>
@@ -84,19 +84,20 @@ input[type="text"] {
 			<input type="text" id="name" name="name" class="m2" placeholder=" Name" required>
 		</div>
 		<div>
-			<label for="id" class="m1">아이디</label>
-			<input type="text" id="id" name="id" class="m2 m2-1" placeholder=" ID" required>
-			<button type="button" onclick="open_idcheck()" class="btn">중복체크</button>
-		</div>
+			<label for="userid" class="m1">아이디</label>
+			<input type="text" id="userid" name="userid" class="m2 m2-1" placeholder=" ID" required>
+			<button type="button" onclick="openModal()" class="btn">중복체크</button>
+			<!-- 위에꺼 모달 수정해야됨 -->
+		</div> 
 		<div>
-			<label for="pw" class="m1 m1-2">비밀번호</label>
-			<input type="text" id="pw" name="pw" class="m2" placeholder=" Password" required>
+			<label for="pwd" class="m1 m1-2">비밀번호</label>
+			<input type="text" id="pwd" name="pwd" class="m2" placeholder=" Password" required>
 		</div>
-		<div class="ex">*비밀번호는 영문,숫자를 혼합하여 8~20자 이내로 입력하세요.</div>
+		<div class="ex">*비밀번호는 영문, 숫자, _ , !를 혼합하여 4~20자 이내로 입력하세요.</div>
 		
 		<div>
-			<label for="pw2" class="m1">비밀번호 확인</label>
-			<input type="text" id="pw2" name="pw2" class="m2" placeholder=" Password" required>
+			<label for="pwd2" class="m1">비밀번호 확인</label>
+			<input type="text" id="pwd2" name="pwd2" class="m2" placeholder=" Password" required>
 		</div>
 		<div>
 			<label for="email" class="m1">이메일</label> 
@@ -104,10 +105,46 @@ input[type="text"] {
 		</div>		
 		<hr>
 		
-		<button type="button" onclick="#" class="join">회원가입</button>
-		
+		<button type="button" onclick="member_check()" class="join">가입하기</button>
+
 	</form>
 </div>
 
+  	<!-- The Modal -->
+  	<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+    	
+      	<div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" id="modalTitle" style="font-size:15px; margin-top:2px;">알림</h4>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+           <p id="modalBody"></p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color:black;">확인</button>
+        </div>
+        
+      	</div>
+      	
+    </div>
+  	</div>
+  	
+  	
+<script>
+function openModal() {
+	$('#myModal').modal('show');
+}
 
+var modalBodyElement = document.getElementById("modalBody");
+
+
+</script>
 

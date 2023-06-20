@@ -73,7 +73,7 @@ a:hover {
 		<div>아이디 저장.. 자동로그인?</div>
 		
 		<div class="last">
-			<a href="#">회원가입&nbsp;&nbsp;</a>|
+			<a href="${myctx}/join">회원가입&nbsp;&nbsp;</a>|
 			<a href="#">&nbsp;&nbsp;아이디 찾기&nbsp;&nbsp;</a>|
 			<a href="#">&nbsp;&nbsp;비밀번호 찾기</a>		
 		</div>
