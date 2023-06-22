@@ -1,24 +1,31 @@
-/**
- * https://regexr.com
- */
- 
-let win=null;
+var modalBodyElement = document.getElementById("modalBody");
 
-//function open_idcheck(){
-//	win=window.open("idCheck","idCheck","width=400, height=400, left=200, top=200");
-//}//--------------------------
+function openModal() {
+	modalBodyElement.innerHTML = "";
+	$('#myModal').modal('show');
+}
 
-// 아이디 체크 후 갖고오기
-function set_id(uid){ 
-	//alert(uid);
-	//uid값을 부모창(window)의 userid의 value값에 전달하자
-	//팝업창에서 부모창을 참조할때는: opener (window)
-	//window >document>forms
-	opener.document.mf.userid.value = uid;
-	
-	//팝업창 닫기
-	self.close();
-}//--------------------------
+var checkMessage = "";
+
+function idCheck() {
+	var userid = $('#userid').val();
+
+	// 서버에 아이디 중복 체크 요청 보내기
+	$.ajax({
+	    url: '/idCheck',
+	    type: 'POST',
+	    data: { userid: userid },
+	    success: function(response) {
+	    	checkMessage = response;
+	    	showModal(response);
+		}
+	});
+}
+
+function showModal(message) {
+	modalBodyElement.innerHTML = message;
+	$('#myModal').modal('show');
+}
 
 //아이디 중복체크 및 가능 여부
 function id_check(){
@@ -67,13 +74,6 @@ function member_check(){
 		mf.pwd2.select();
 		return;
 	}
-
-	//이메일 체크
-	/*
-	asdf-12cd@gmail.com
-	asdf.my@naver.com
-	asdf12@google.co.kr
-	*/
 	
 	if(!isEmail(mf.email)){
 		openModal();
@@ -81,6 +81,16 @@ function member_check(){
 		mf.email.select();
 		return;
 	}
+	
+    if (checkMessage === null || checkMessage === "") {
+		openModal();
+		modalBodyElement.innerHTML = "중복체크를 해주세요.";
+        return;
+    } else if (checkMessage === "이미 사용 중인 아이디입니다.") {
+		openModal();
+		modalBodyElement.innerHTML = "이미 사용 중인 아이디입니다. id를 다시 입력해주세요.";
+        return;
+    } 
 	
 	mf.submit();//서버로 전송
 	

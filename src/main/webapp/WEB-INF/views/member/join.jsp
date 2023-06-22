@@ -86,8 +86,7 @@ input[type="text"] {
 		<div>
 			<label for="userid" class="m1">아이디</label>
 			<input type="text" id="userid" name="userid" class="m2 m2-1" placeholder=" ID" required>
-			<button type="button" onclick="openModal()" class="btn">중복체크</button>
-			<!-- 위에꺼 모달 수정해야됨 -->
+			<button type="button" onclick="idCheck()" class="btn">중복체크</button>
 		</div> 
 		<div>
 			<label for="pwd" class="m1 m1-2">비밀번호</label>
@@ -110,8 +109,8 @@ input[type="text"] {
 	</form>
 </div>
 
-  	<!-- The Modal -->
-  	<div class="modal fade" id="myModal">
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
     <div class="modal-dialog modal-dialog-centered">
     	
       	<div class="modal-content">
@@ -135,16 +134,5 @@ input[type="text"] {
       	</div>
       	
     </div>
-  	</div>
-  	
-  	
-<script>
-function openModal() {
-	$('#myModal').modal('show');
-}
-
-var modalBodyElement = document.getElementById("modalBody");
-
-
-</script>
+</div>
 
