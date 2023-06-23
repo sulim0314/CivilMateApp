@@ -1,10 +1,12 @@
 package com.my.newapp;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,12 +60,30 @@ public class UserController {
 	@PostMapping(value = "/idCheck", produces = "text/plain; charset=UTF-8")
 	@ResponseBody
 	public String idCheckResult(@RequestParam("userid") String userid) {
-		System.out.println("들어왔나요");
+		
 		boolean isUse = userService.idCheck(userid);
 		String message = isUse ? "사용 가능한 아이디입니다." : "이미 사용 중인 아이디입니다.";
 		return message;
 	}
 	
+	
+	@RequestMapping(value="/findId",method=RequestMethod.GET)
+	public String findId() {
+		
+		return "/member/findId";
+	}
+	
+	@RequestMapping(value="/findPw",method=RequestMethod.GET)
+	public String findPw() {
+		
+		return "/member/findPw";
+	}
+	
+	@GetMapping("/myPage")
+	public String myPage(HttpSession session) {
+		
+		return "member/myPage";
+	}
 }
 
 

@@ -90,13 +90,13 @@ input[type="text"] {
 		</div> 
 		<div>
 			<label for="pwd" class="m1 m1-2">비밀번호</label>
-			<input type="text" id="pwd" name="pwd" class="m2" placeholder=" Password" required>
+			<input type="password" id="pwd" name="pwd" class="m2" placeholder=" Password" required>
 		</div>
 		<div class="ex">*비밀번호는 영문, 숫자, _ , !를 혼합하여 4~20자 이내로 입력하세요.</div>
 		
 		<div>
 			<label for="pwd2" class="m1">비밀번호 확인</label>
-			<input type="text" id="pwd2" name="pwd2" class="m2" placeholder=" Password" required>
+			<input type="password" id="pwd2" name="pwd2" class="m2" placeholder=" Password" required>
 		</div>
 		<div>
 			<label for="email" class="m1">이메일</label> 
@@ -135,4 +135,42 @@ input[type="text"] {
       	
     </div>
 </div>
+
+<script>
+var modalBodyElement = document.getElementById("modalBody");
+
+function openModal() {
+	modalBodyElement.innerHTML = "";
+	$('#myModal').modal('show');
+}
+
+var checkMessage = "";
+
+function idCheck() {
+	var userid = $('#userid').val();
+	
+	if(userid == null || userid.trim() === "") {
+		res = "아이디를 입력해주세요.";
+    	showModal(res);		
+    	return;
+	}
+	
+	// 서버에 아이디 중복 체크 요청 보내기
+	$.ajax({
+	    url: '/idCheck',
+	    type: 'POST',
+	    data: { userid: userid },
+	    success: function(response) {
+	    	checkMessage = response;
+	    	showModal(response);
+		}
+	});
+}
+
+function showModal(message) {
+	modalBodyElement.innerHTML = message;
+	$('#myModal').modal('show');
+}
+
+</script>
 

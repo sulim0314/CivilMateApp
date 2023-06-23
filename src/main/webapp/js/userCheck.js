@@ -1,31 +1,3 @@
-var modalBodyElement = document.getElementById("modalBody");
-
-function openModal() {
-	modalBodyElement.innerHTML = "";
-	$('#myModal').modal('show');
-}
-
-var checkMessage = "";
-
-function idCheck() {
-	var userid = $('#userid').val();
-
-	// 서버에 아이디 중복 체크 요청 보내기
-	$.ajax({
-	    url: '/idCheck',
-	    type: 'POST',
-	    data: { userid: userid },
-	    success: function(response) {
-	    	checkMessage = response;
-	    	showModal(response);
-		}
-	});
-}
-
-function showModal(message) {
-	modalBodyElement.innerHTML = message;
-	$('#myModal').modal('show');
-}
 
 //아이디 중복체크 및 가능 여부
 function id_check(){

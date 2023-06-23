@@ -20,7 +20,7 @@
 	</select>
 	
 	<select id="findUser" resultType="User" parameterType="User">
-		select * from memberView where userid=#{userid}
+		select * from member where userid=#{userid}
 	</select>
 	
 </mapper>

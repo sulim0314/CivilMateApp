@@ -37,19 +37,16 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int deleteUser(Integer midx) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int updateUser(UserVO user) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public UserVO getUser(Integer midx) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -61,16 +58,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserVO loginCheck(String userid, String pwd) throws NotUserException {
+		
 		UserVO tmpUser=new UserVO();
+		
 		tmpUser.setUserid(userid);
 		tmpUser.setPwd(pwd);
-		UserVO dbuser=this.findUser(tmpUser);
-		if(dbuser==null) throw new NotUserException("존재하지 않는 아이디입니다");
-		//비밀번호 일치여부 체크 <=암호화된 비밀번호 일치여부 체크
-		//if(!dbuser.getPwd().equals(pwd)) {
 		
-		boolean isMatch=passwordEncoder.matches(pwd, dbuser.getPwd());
+		UserVO dbuser=this.findUser(tmpUser);
+		
+		if(dbuser == null) {
+			throw new NotUserException("존재하지 않는 아이디입니다");
+		}
+		
+		boolean isMatch = passwordEncoder.matches(pwd, dbuser.getPwd());
+		
 		System.out.println("isMatch: "+isMatch);
+		
 		if(!isMatch) {
 			throw new NotUserException("비밀번호가 일치하지 않아요");
 		}

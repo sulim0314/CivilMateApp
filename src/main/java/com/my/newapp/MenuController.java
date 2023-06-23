@@ -12,9 +12,9 @@ public class MenuController {
 //		return "member/join";
 //	}
 	
-	@GetMapping("/login")
-	public String login() {
-		
-		return "member/login";
-	}
+//	@GetMapping("/login")
+//	public String login() {
+//		
+//		return "member/login";
+//	}
 }
