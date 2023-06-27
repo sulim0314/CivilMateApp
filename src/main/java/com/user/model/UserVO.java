@@ -11,10 +11,5 @@ public class UserVO {
 	private String userid;
 	private String pwd;
 	private String email;
-	
-	public UserVO() {
-		
-	}
-	
 
-}///////////////////////////////////
+}

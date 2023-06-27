@@ -26,16 +26,14 @@ public class UserController {
 	@Inject 
 	private UserService userService;
 	
-	@RequestMapping(value="/join",method=RequestMethod.GET)
+	@GetMapping("/join")
 	public String joinForm() {
 		
 		return "/member/join";
 	}
 	
-	@RequestMapping(value="/join",method=RequestMethod.POST)
+	@PostMapping("/join")
 	public String createUser(Model m,@ModelAttribute  UserVO user) {
-
-		System.out.println("user=="+user.getName());
 				
 		if(user.getName()==null||user.getUserid()==null||user.getPwd()==null||
 				user.getName().trim().isEmpty()||
@@ -67,13 +65,13 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/findId",method=RequestMethod.GET)
+	@GetMapping("/findId")
 	public String findId() {
 		
 		return "/member/findId";
 	}
 	
-	@RequestMapping(value="/findPw",method=RequestMethod.GET)
+	@GetMapping("/findPw")
 	public String findPw() {
 		
 		return "/member/findPw";
@@ -84,6 +82,8 @@ public class UserController {
 		
 		return "member/myPage";
 	}
+
+	
 }
 
 

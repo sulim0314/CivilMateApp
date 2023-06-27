@@ -34,8 +34,6 @@ public class LoginController {
 			@ModelAttribute("user") UserVO user,
 			@RequestParam(defaultValue="off") String saveId) throws NotUserException {
 		
-		System.out.println("saveId: "+saveId);
-		
 		if(user.getUserid()==null||user.getPwd()==null||user.getUserid().trim().isEmpty()||user.getPwd().trim().isEmpty()) {
 			return "redirect:/login";
 		}
