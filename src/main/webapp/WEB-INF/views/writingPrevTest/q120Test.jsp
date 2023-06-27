@@ -275,10 +275,10 @@
 			  contentType : "application/json;charset=UTF-8",
 			  data: JSON.stringify({wrongNum: wrongNum, wrongAns:wrongAns}),
 			  success: function(response) {
-			    console.log('데이터 전송 성공');
+				  console.log('데이터 전송 성공');
 			  },
 			  error: function(xhr, status, error) {
-			    console.error('데이터 전송 실패:', error);
+				  console.error('데이터 전송 실패:', error);
 			  }
 			});
 		  	
@@ -293,14 +293,7 @@
 		  	// 페이지 이동
 		  	window.location.href = url;
 		  
-		  	
-		  	
-		  
 		} // submitQuiz()------------------------
-		
-		
-		
-		
 		
 	</script>
 </body>

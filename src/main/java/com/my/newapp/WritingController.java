@@ -28,19 +28,12 @@ public class WritingController {
 		return "writingPrevTest/q120Test";
 	}
 	// 몇년도 몇 회 시험 끝---------------------------------------------
-	// 모의고사
-	@GetMapping("/mockTest")//없애
-	public String mockTest() {
-		
-		return "writing/mockTest";
-		//WEB-INF/views/writing/mockTest.jsp
-	}
+
 	// 오답노트 페이지
 	@GetMapping("/wrongAnswer")
 	public String wrongAnswer() {
 		
 		return "writing/wrongAnswer";
-		//WEB-INF/views/writing/wrongAnswer.jsp
 	}
 	
 	@GetMapping("/submitPage")
@@ -60,14 +53,6 @@ public class WritingController {
 	public String qnaRegister() {
 		
 		return "practical/qnaRegister";
-	}
-	
-	
-	
-	@GetMapping("/sampleQ") // 나중에 없애기
-	public String sampleQ() {
-		
-		return "writingPrevTest/sampleQ";
 	}
 
 }

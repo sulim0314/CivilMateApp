@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,17 +24,21 @@ public class WrongController {
 
 	@PostMapping(value = "/insertWrongData", produces = "application/json")
 	@ResponseBody
-	public void insertWrongData(@RequestBody WrongVO wrong) {
+	public ModelMap insertWrongData(@RequestBody WrongVO wrong) {
 		
-		System.out.println("틀린 데이터");
-		
+		System.out.println("틀린 데이터"); // 나중에 지우기
 		System.out.println(wrong.getWrongNum());
 		System.out.println(wrong.getWrongAns());
 		
 		wrong.setWrongNum(wrong.getWrongNum());
 		wrong.setWrongAns(wrong.getWrongAns());
 		
-		wrongService.insertWrongData(wrong);
+		int n = wrongService.insertWrongData(wrong);
+		
+		ModelMap map = new ModelMap();
+		map.addAttribute("result", n);
+		
+		return map;
 	}
 	
 	@GetMapping(value="/confirmPage")

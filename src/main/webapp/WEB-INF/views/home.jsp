@@ -1,9 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<html>
-<head>
-<title>Home</title>
 
 <style>
 .mainImage {
@@ -62,24 +58,17 @@
 	padding-right: 10px;
 }
 </style>
-</head>
 
 <body>
 	<h1 class="mainImage" style="text-align: center">★★★</h1>
 
 	<div class="box1">
 		<a href="${myctx}/prev_test" class="btn" id="btn1">필기 기출문제</a>
-		<%-- <a href="${myctx}/mockTest" class="btn" id="btn1">필기 모의고사</a> --%>
-		<%-- <a href="${myctx}/wrongAnswer" class="btn" id="btn1">필기 오답노트</a> --%>
 		<button class="btn" id="btn1" style="margin-bottom: 15px">시험 결과 확인</button>
 	</div>
 	
 	<div class="box2">
 		<a href="${myctx}/qnaRegister" class="btn" id="btn2">실기 문제 등록</a>
 		<a href="#" class="btn" id="btn2">실기 시험보기</a>
-		<!-- <button class="btn" id="btn2">랜덤으로 시험보기</button> -->
-		<!-- <button class="btn" id="btn2">실기 오답노트</button> -->
 	</div>
 </body>
-
-</html>
