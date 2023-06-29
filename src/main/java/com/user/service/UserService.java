@@ -12,12 +12,14 @@ public interface UserService {
 
 	int deleteUser(Integer midx);
 
-	int updateUser(UserVO user);
-
 	UserVO getUser(Integer midx);
 
 	UserVO findUser(UserVO findUser) throws NotUserException;
 
 	UserVO loginCheck(String userid, String pwd) throws NotUserException;
+
+	String updatePwd(UserVO user);
+	
+	String updateEmail(UserVO user);
 
 }

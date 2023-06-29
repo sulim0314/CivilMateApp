@@ -66,12 +66,12 @@
 		<hr>
 		<div class="row1">
 			ID&nbsp;&nbsp;:&nbsp;&nbsp;${loginUser.userid}
-			<button class="btn btn-secondary">비밀번호 변경</button>
+			<button id="newPwd" class="btn btn-secondary">비밀번호 변경</button>
 		</div>
 		<hr>
 		<div class="row2">
 			E-mail&nbsp;&nbsp;:&nbsp;&nbsp;${loginUser.email}
-			<button class="btn btn-secondary">변경</button>
+			<button id="newEmail" class="btn btn-secondary">변경</button>
 		</div>
 		<hr>
 
@@ -87,7 +87,15 @@
 
 </body>
 
+<script>
+$("#newPwd").click(function() {
+	window.location.href = "/newPwd";
+});
 
+$("#newEmail").click(function(){
+	window.location.href = "/newEmail";
+});
+</script>
 
 
 

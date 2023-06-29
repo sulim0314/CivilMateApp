@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.user.model.NotUserException;
 import com.user.model.UserVO;
 import com.user.service.UserService;
 
@@ -83,6 +84,36 @@ public class UserController {
 		return "member/myPage";
 	}
 
+	@GetMapping("/newPwd")
+	public String newPwd(HttpSession session) {
+		
+		return "member/newPwd";
+	}
+	
+	@GetMapping("/newEmail")
+	public String newEmail(HttpSession session) {
+		
+		return "member/newEmail";
+	}
+	
+	@PostMapping("/updatePwd")
+	public String updatePwd(Model m, @ModelAttribute  UserVO user, @RequestParam("userid") String userid, 
+							@RequestParam("pwd") String pwd , @RequestParam("newPwd2") String pwd2 ) 
+									throws NotUserException {
+				
+		user.setUserid(userid);
+		user.setPwd(pwd2); // 새 비밀번호
+	
+		// 새 비밀번호가 null일 때, 마이페이지로 돌아가기
+		if(user.getPwd()==null||user.getPwd().trim().isEmpty()) {
+			return "redirect:myPage";
+		}
+		
+		userService.loginCheck(user.getUserid(), pwd);
+
+		return "redirect:/";
+
+	}
 	
 }
 

@@ -41,11 +41,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updateUser(UserVO user) {
-		return 0;
-	}
-
-	@Override
 	public UserVO getUser(Integer midx) {
 		return null;
 	}
@@ -72,13 +67,25 @@ public class UserServiceImpl implements UserService {
 		
 		boolean isMatch = passwordEncoder.matches(pwd, dbuser.getPwd());
 		
-		System.out.println("isMatch: "+isMatch);
-		
 		if(!isMatch) {
 			throw new NotUserException("비밀번호가 일치하지 않아요");
 		}
 		
 		return dbuser;
+	}
+
+	@Override
+	public String updatePwd(UserVO user) {
+		
+		user.setPwd(passwordEncoder.encode(user.getPwd())); //비밀번호 암호화 처리
+		
+		return userMapper.updatePwd(user);
+	}
+
+	@Override
+	public String updateEmail(UserVO user) {
+
+		return null;
 	}
 
 

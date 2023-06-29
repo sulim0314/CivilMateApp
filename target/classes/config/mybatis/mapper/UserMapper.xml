@@ -23,4 +23,11 @@
 		select * from member where userid=#{userid}
 	</select>
 	
+	<select id="updatePwd" parameterType="User">
+		UPDATE member 
+		set pwd=#{pwd}
+		WHERE userid=#{userid}
+	</select>
+	
+	
 </mapper>

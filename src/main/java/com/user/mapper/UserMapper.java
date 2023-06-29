@@ -11,7 +11,9 @@ public interface UserMapper {
 	Integer idCheck(String userid);
 	UserVO findUser(UserVO user);
 	
+	String updatePwd(UserVO user);
+	String updateEmail(UserVO user);
+	
 	int deleteUser(int idx);
-	int updateUser(UserVO user);
 
 }
