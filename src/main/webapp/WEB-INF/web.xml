@@ -70,6 +70,11 @@
 		</jsp-property-group>
 	</jsp-config>
 
+	<error-page>
+	    <exception-type>com.user.model.NotUserException</exception-type>
+	    <location>/WEB-INF/views/member/errorAlert.jsp</location>
+	</error-page>
+	
 </web-app>
 
 

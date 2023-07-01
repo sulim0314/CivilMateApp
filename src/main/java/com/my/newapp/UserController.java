@@ -45,11 +45,9 @@ public class UserController {
 		
 		int n = userService.createUser(user);
 		String str=(n>0)?"회원가입이 완료되었습니다!":"회원가입에 실패하셨습니다.";
-		String str2=(n>0)?"잠시 후 로그인 페이지로 이동합니다.":"다시 회원가입 페이지로 이동합니다.";
 		String loc=(n>0)?"login":"javascript:history.back()";
 		
 		m.addAttribute("msg",str);
-		m.addAttribute("msg2",str2);
 		m.addAttribute("loc",loc);
 		
 		return "message";
@@ -62,6 +60,7 @@ public class UserController {
 		
 		boolean isUse = userService.idCheck(userid);
 		String message = isUse ? "사용 가능한 아이디입니다." : "이미 사용 중인 아이디입니다.";
+		
 		return message;
 	}
 	
@@ -98,9 +97,9 @@ public class UserController {
 	
 	@PostMapping("/updatePwd")
 	public String updatePwd(Model m, @ModelAttribute  UserVO user, @RequestParam("userid") String userid, 
-							@RequestParam("pwd") String pwd , @RequestParam("newPwd2") String pwd2 ) 
-									throws NotUserException {
+							@RequestParam("pwd") String pwd , @RequestParam("newPwd2") String pwd2 ) throws NotUserException {
 				
+		String prevPwd = pwd;
 		user.setUserid(userid);
 		user.setPwd(pwd2); // 새 비밀번호
 	
@@ -109,10 +108,16 @@ public class UserController {
 			return "redirect:myPage";
 		}
 		
-		userService.loginCheck(user.getUserid(), pwd);
+		userService.updatePwd(prevPwd, user);
 
-		return "redirect:/";
-
+		String str = "비밀번호가 변경되었습니다. ";
+			   str+= "로그아웃 됩니다.";
+		String loc = "/logout";
+		
+		m.addAttribute("msg",str);
+		m.addAttribute("loc",loc);
+		
+		return "message";
 	}
 	
 }

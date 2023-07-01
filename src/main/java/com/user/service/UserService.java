@@ -18,7 +18,7 @@ public interface UserService {
 
 	UserVO loginCheck(String userid, String pwd) throws NotUserException;
 
-	String updatePwd(UserVO user);
+	String updatePwd(String prevPwd, UserVO user) throws NotUserException;
 	
 	String updateEmail(UserVO user);
 

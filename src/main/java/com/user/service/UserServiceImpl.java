@@ -75,9 +75,22 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String updatePwd(UserVO user) {
+	public String updatePwd(String prevPwd, UserVO user) throws NotUserException {
 		
-		user.setPwd(passwordEncoder.encode(user.getPwd())); //비밀번호 암호화 처리
+		UserVO tmpUser= new UserVO();
+		
+		tmpUser.setUserid(user.getUserid());
+		tmpUser.setPwd(prevPwd);
+		
+		UserVO dbuser = this.findUser(tmpUser);
+		
+		boolean isMatch = passwordEncoder.matches(prevPwd, dbuser.getPwd()); // 현재 비밀번호와, DB에 있는 비밀번호 일치하는지 확인.
+		
+		if(!isMatch) {
+			throw new NotUserException("비밀번호가 일치하지 않아요");
+		} else {
+			user.setPwd(passwordEncoder.encode(user.getPwd())); //새 비밀번호 암호화 처리
+		}
 		
 		return userMapper.updatePwd(user);
 	}
