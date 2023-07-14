@@ -25,25 +25,25 @@
 	align-items: center;
 	font-size: 14px;
 	border-radius: 50px;
-	box-shadow: 0 0 10px #A7EDE7;
+	box-shadow: 0 0 10px #FFF9C9;
 }
 
 #btn1 {
-	background-color: #B6EAFA;
+	background-color: #FBEEAC;
 }
 
 #btn2 {
-	background-color: #B8E7E1;
+	background-color: #FFD6A5;
 }
 
 .btn:hover {
 	color: white;
-	box-shadow: 0 0 10px #64CCC5;
+	box-shadow: 0 0 10px #FFF9C9;
 }
 </style>
 
 <body>
-	<h1 class="mainImage" style="text-align: center">★★★</h1>
+	<h1 class="mainImage" style="text-align: center"><img src="images/병아리.png" width="80px;"></h1>
 
 	<div class="box">
 		<div class="row row1">

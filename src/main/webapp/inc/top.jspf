@@ -7,11 +7,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="shortcut icon" href="<c:url value='resources/favicon.png'/>" type="image/x-icon"/>
+<link rel="icon" href="<c:url value='resources/favicon.png'/>" type="image/x-icon"/>
+
+
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MyNewApp</title>
+<title>토목기사 메이트</title>
+
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -57,7 +63,7 @@
 	<!-- navbar---------------------------- -->
 	<nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
 		<!-- Brand -->
-		<a class="navbar-brand" href="${myctx}/">토목기사 메이트</a>
+		<a class="navbar-brand" href="${myctx}/"><img src="images/병아리.png" style="width: 20px; margin-right:10px;">토목기사 메이트</a>
 
 		<!-- Toggler/collapsibe Button -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
