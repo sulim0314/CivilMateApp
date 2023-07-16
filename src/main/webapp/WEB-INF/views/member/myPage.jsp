@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<style>
 
+<style>
 .title {
 	width: 100%;
 	font-size: 25px;
@@ -61,7 +60,7 @@
 
 	<div class="big-box">
 		<div class="title">My Page</div>
-		<div class="who">${loginUser.name}님의 정보</div>
+		<div class="who">${loginUser.name}님의정보</div>
 
 		<hr>
 		<div class="row1">
@@ -77,24 +76,47 @@
 
 	</div>
 
-	<div class="btns">
-		<form name="f" action="deleteMember" method="POST">
-			<input type="hidden" name="idx" value="${loginUser.idx}">
-			<!-- 안보이게 -->
-			<button class="btn btn-dark">탈퇴하기</button>
-		</form>
+	<div class="container">
+		<!-- 탈퇴 모달 -->
+
+		<div class="btns">
+			<button type="button" class="btn btn-info" data-toggle="modal"
+				data-target="#myModal" style="width: 90px;">탈퇴하기</button>
+		</div>
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">알림</h4>
+					</div>
+					<div class="modal-body">정말 탈퇴하시겠습니까?</div>
+					<div class="modal-footer">
+						<form action="${myctx}/deleteMember" name="delete_mb" id="delete_mb" method="post">
+							<input type="hidden" name="idx" value="${loginUser.idx}">
+							<button type="submit" class="btn btn-danger"
+								onclick="deleteConfirmation()">탈퇴</button>
+						</form>
+						<button type="button" class="btn btn-success" data-dismiss="modal">취소</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--  삭제 모달 끝 -->
 	</div>
+
 
 </body>
 
 <script>
-$("#newPwd").click(function() {
-	window.location.href = "/newPwd";
-});
+	$("#newPwd").click(function() {
+		window.location.href = "/newPwd";
+	});
 
-$("#newEmail").click(function(){
-	window.location.href = "/newEmail";
-});
+	$("#newEmail").click(function() {
+		window.location.href = "/newEmail";
+	});
+
 </script>
 
 

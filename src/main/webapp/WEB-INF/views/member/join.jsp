@@ -47,6 +47,11 @@ input[type="text"] {
 	margin-bottom: 3px;
 	margin-left: 1px;
 }
+
+.btn:hover {
+	background-color: #DDE6ED;
+}
+
 .join {
 	width: 100%;
 	font-size: 15px;
@@ -57,8 +62,8 @@ input[type="text"] {
 }
 
 .join:hover{
-	color: #fff;
 	text-decoration: none;
+	background-color: #DDE6ED;
 }
 .ex {
 	color: #92A9BD;
@@ -69,6 +74,10 @@ input[type="text"] {
 }
 ::placeholder {
   	color: #DDDDDD;
+}
+
+input[readonly] {
+	background-color: #EEEEEE;
 }
 </style>
 
@@ -163,6 +172,10 @@ function idCheck() {
 	    success: function(response) {
 	    	checkMessage = response;
 	    	showModal(response);
+	    	// 아이디 중복 체크 완료 후 아이디 입력란 읽기 전용으로 변경
+	        if (response === "사용 가능한 아이디입니다.") {
+	          $('#userid').prop('readonly', true);
+	        }
 		}
 	});
 }

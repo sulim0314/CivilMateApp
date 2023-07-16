@@ -9,8 +9,8 @@
 
 .title {
 	font-size: 20px;
-	margin-top: 50px;
-	margin-bottom: 60px;
+	margin-top: 30px;
+	margin-bottom: 40px;
 	display: flex;
 	justify-content: center;
 }
@@ -64,7 +64,7 @@ a:hover {
 
 <div class="container">
 	<div class="title">
-		<b>★★★</b>
+		<img src="images/병아리.png" width="60px;">
 	</div>
 		<form name="loginF" action="login" method="post" onsubmit="return login_check()">
 		<!--  onsubmit가 true면 전송, false면 전송 X -->

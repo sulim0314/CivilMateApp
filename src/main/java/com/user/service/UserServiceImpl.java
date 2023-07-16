@@ -36,11 +36,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int deleteUser(Integer midx) {
-		return 0;
-	}
-
-	@Override
 	public UserVO getUser(Integer midx) {
 		return null;
 	}
@@ -96,9 +91,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String updateEmail(UserVO user) {
+	public String updateEmail(UserVO user) throws NotUserException {
 
-		return null;
+		return userMapper.updateEmail(user);
+	}
+
+	@Override
+	public int deleteMember(int idx) {
+
+		return userMapper.deleteMember(idx);
 	}
 
 

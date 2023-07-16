@@ -53,8 +53,14 @@
 	z-index: 9999;
 }
 
-.navbar-brand, .nav-item {
-	font-size: medium;
+.nav-item {
+	font-size: 14px;
+}
+
+.navbar-brand {
+	font-size: 15px;
+	font-weight: bold;
+	/* color: #7B8FA1 !important; */
 }
 </style>
 </head>

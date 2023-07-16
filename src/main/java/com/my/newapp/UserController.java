@@ -120,6 +120,43 @@ public class UserController {
 		return "message";
 	}
 	
+	@PostMapping("/updateEmail")
+	public String updateEmail(Model m, @ModelAttribute  UserVO user, @RequestParam("userid") String userid, 
+							@RequestParam("email2") String email2) throws NotUserException {
+				
+		user.setUserid(userid);
+		user.setEmail(email2); // 새 비밀번호
+	
+		// 새 이메일이 null일 때, 마이페이지로 돌아가기
+		if(user.getEmail()==null||user.getEmail().trim().isEmpty()) {
+			return "redirect:myPage";
+		}
+		
+		userService.updateEmail(user);
+
+		String str = "이메일이 변경되었습니다. ";
+		String loc = "/myPage";
+		
+		m.addAttribute("msg",str);
+		m.addAttribute("loc",loc);
+		
+		return "message";
+	}
+	
+	@PostMapping("/deleteMember")
+	public String deleteMember(Model m, @ModelAttribute  UserVO user, @RequestParam("idx") int idx) {
+		
+		userService.deleteMember(idx);
+		
+		String str = "성공적으로 탈퇴되었습니다. ";
+		String loc = "/logout";
+		
+		m.addAttribute("msg",str);
+		m.addAttribute("loc",loc);
+		
+		return "message";
+	}
+	
 }
 
 

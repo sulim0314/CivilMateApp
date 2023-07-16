@@ -3,8 +3,8 @@
 
 <style>
 .mainImage {
-	margin-top: 40px;
-	margin-bottom: 60px;
+	margin-top: 25px;
+	margin-bottom: 45px;
 }
 
 .box {
@@ -23,8 +23,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 14px;
-	border-radius: 50px;
+	font-size: 13px;
+	font-weight: bold;
+	border-radius: 30px;
 	box-shadow: 0 0 10px #FFF9C9;
 }
 
@@ -38,7 +39,7 @@
 
 .btn:hover {
 	color: white;
-	box-shadow: 0 0 10px #FFF9C9;
+	box-shadow: 0 0 15px #D6E4E5;
 }
 </style>
 
