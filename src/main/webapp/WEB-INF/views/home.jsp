@@ -3,8 +3,8 @@
 
 <style>
 .mainImage {
-	margin-top: 25px;
-	margin-bottom: 45px;
+	margin-top: 50px;
+	margin-bottom: 60px;
 }
 
 .box {

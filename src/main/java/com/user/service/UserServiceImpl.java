@@ -102,5 +102,11 @@ public class UserServiceImpl implements UserService {
 		return userMapper.deleteMember(idx);
 	}
 
+	@Override
+	public String getIdByEmail(String searchEmail) {
+
+		return userMapper.getIdByEmail(searchEmail);
+	}
+
 
 }

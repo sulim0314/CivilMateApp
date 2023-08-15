@@ -22,4 +22,6 @@ public interface UserService {
 
 	int deleteMember(int idx);
 
+	String getIdByEmail(String searchEmail);
+
 }

@@ -15,5 +15,7 @@ public interface UserMapper {
 	String updateEmail(UserVO user);
 	
 	int deleteMember(int idx);
+	
+	String getIdByEmail(String searchEmail);
 
 }

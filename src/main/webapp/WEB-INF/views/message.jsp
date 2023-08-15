@@ -3,7 +3,7 @@
 <style>
 .alert-primary {
 	margin-top: 200px;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: bold;
 	width: 90%;
 	max-width: 400px;

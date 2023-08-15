@@ -1,5 +1,8 @@
 package com.my.newapp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -135,7 +139,8 @@ public class UserController {
 		userService.updateEmail(user);
 
 		String str = "이메일이 변경되었습니다. ";
-		String loc = "/myPage";
+			   str+= "로그아웃 됩니다.";
+		String loc = "/logout";
 		
 		m.addAttribute("msg",str);
 		m.addAttribute("loc",loc);
@@ -156,6 +161,22 @@ public class UserController {
 		
 		return "message";
 	}
+	
+	@PostMapping(value = "/checkEmailFindId", produces = "application/json")
+	public ResponseEntity<Map<String, String>> checkEmailFindId(@RequestBody Map<String, String> requestBody, HttpSession session) throws NotUserException {
+
+		Map<String, String> response = new HashMap<>();
+		
+		String searchEmail = requestBody.get("email");
+		String findId = userService.getIdByEmail(searchEmail);
+		
+		if(findId != null) {
+			response.put("userid", findId);
+		} 
+		
+		return ResponseEntity.ok(response);
+	}
+	
 	
 }
 
