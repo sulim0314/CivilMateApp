@@ -10,6 +10,12 @@
 	align-items: center;
 	justify-content: center;
 }
+.top {
+	font-size: 18px;
+	font-weight: bold;
+	color: #445069;
+	margin-bottom: 20px;
+}
 .info {
 	font-size: 14px;
 	font-weight: bold;
@@ -54,6 +60,7 @@
 
 	<!-- 가입할 때 입력하신 이메일 정보를 입력해주세요. -->
 	<div class="box">
+		<div class="top">아이디 찾기 ✔ </div>
 		<div class="title">
 			<img src="images/병아리.png" width="60px;">
 		</div>
@@ -86,7 +93,7 @@ function checkEmail() {
             if (response.userid) {
                 $("#result").show().text("📌 "+ email + "님의 아이디는 " + response.userid + " 입니다.");
             } else {
-                $("#result").show().text("일치하는 아이디가 없습니다.");
+                $("#result").show().text("일치하는 이메일 정보가 없습니다.");
             }
         },
         error: function(xhr, status, error) {

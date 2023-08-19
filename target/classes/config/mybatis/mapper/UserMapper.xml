@@ -28,6 +28,25 @@
 		set pwd=#{pwd}
 		WHERE userid=#{userid}
 	</select>
+
+	<select id="updateEmail" parameterType="User">
+		UPDATE member 
+		set email=#{email}
+		WHERE userid=#{userid}
+	</select>
 	
+	<delete id="deleteMember" parameterType="int">
+		DELETE FROM member
+	    WHERE idx = #{idx}
+	</delete>
 	
+	<select id="getIdByEmail" parameterType="String" resultType="String">
+		SELECT userid
+		FROM (
+			select userid
+			from member
+			where email=#{searchEmail}
+		) WHERE ROWNUM = 1
+	</select>
+
 </mapper>

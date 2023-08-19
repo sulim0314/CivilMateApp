@@ -40,7 +40,6 @@
 	    WHERE idx = #{idx}
 	</delete>
 	
-	<!-- String getIdByEmail(String searchEmail); -->
 	<select id="getIdByEmail" parameterType="String" resultType="String">
 		SELECT userid
 		FROM (
@@ -49,5 +48,5 @@
 			where email=#{searchEmail}
 		) WHERE ROWNUM = 1
 	</select>
-	
+
 </mapper>

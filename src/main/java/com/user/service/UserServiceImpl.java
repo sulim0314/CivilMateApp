@@ -92,19 +92,16 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String updateEmail(UserVO user) throws NotUserException {
-
 		return userMapper.updateEmail(user);
 	}
 
 	@Override
 	public int deleteMember(int idx) {
-
 		return userMapper.deleteMember(idx);
 	}
 
 	@Override
 	public String getIdByEmail(String searchEmail) {
-
 		return userMapper.getIdByEmail(searchEmail);
 	}
 

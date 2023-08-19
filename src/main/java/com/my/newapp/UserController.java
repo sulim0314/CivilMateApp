@@ -177,6 +177,20 @@ public class UserController {
 		return ResponseEntity.ok(response);
 	}
 	
+	@PostMapping(value = "/checkEmailFindPw", produces = "application/json")
+	public ResponseEntity<Map<String, String>> checkEmailFindPw(@RequestBody Map<String, String> requestBody, HttpSession session) throws NotUserException {
+
+		Map<String, String> response = new HashMap<>();
+		
+		String searchEmail = requestBody.get("email");
+		String findId = userService.getIdByEmail(searchEmail);
+		
+		if(findId != null) {
+			response.put("emailExist", findId);
+		} 
+		
+		return ResponseEntity.ok(response);
+	}
 	
 }
 
