@@ -256,22 +256,73 @@
 	}
 	%>
 	
-	<button class="btn-confirm">시험 결과 저장</button>
+	<button class="btn-confirm" data-toggle="modal" onclick="saveWrongData()" data-target="#myModal">시험 결과 저장</button>
 	<button class="btn-confirm" id="btn-confirm" onclick="sendTestCha()">오답 확인</button>
 	
 	<div class="ex">* 시험 결과를 저장하면, 시험 결과 확인 페이지에서 확인하실 수 있습니다.</div>
+	
+	
+	<div class="container">
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title" style="font-size: 16px;">알림</div>
+					</div>
+					<div class="modal-body">시험 결과가 저장되었습니다.</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal">확인</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	
 <script>
 		function sendTestCha() {
 	 		// confirmPage.jsp로 점수 데이터 전달
 		  	var testCha = "<%= testCha %>";
-
 		  	var url = "${myctx}/confirmPage?testCha="+ testCha;
-			  
 		  	// 페이지 이동
 		  	window.location.href = url;
-		  	
+		}
+		
+		function saveWrongData() {
+
+			var testCha = "<%= testCha %>";
+			var score1 = "<%= score1 %>";
+			var score2 = "<%= score2 %>";
+			var score3 = "<%= score3 %>";
+			var score4 = "<%= score4 %>";
+			var score5 = "<%= score5 %>";
+			var score6 = "<%= score6 %>";
+			var mean = "<%= formattedMean %>";
+			
+			$.ajax({
+				url: '/saveWrongData',
+				type: 'POST',
+				dataType: 'json',
+				contentType: "application/json;charset=UTF-8",
+				data: JSON.stringify({
+					type: '6',
+					testCha: testCha,
+					test1: score1,
+					test2: score2,
+					test3: score3,
+					test4: score4,
+					test5: score5,
+					test6: score6,
+					mean: mean}),
+				success: function(response) {
+					console.log('데이터 전송 성공');
+				},
+				error: function(xhr, status, error) {
+					console.error('데이터 전송 실패:', error);					
+				}
+			});
+			
 		}
 
 

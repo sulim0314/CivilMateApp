@@ -11,6 +11,9 @@ public interface WrongService {
 
 	int insertWrongData(WrongVO wrong);
 
-	WrongVO selectWrongData();
+	WrongVO selectWrongData(String userId);
+
+	// saveWrong 테이블에 저장한 것 넣기
+	int saveWrong(WrongVO wrong);
 
 }

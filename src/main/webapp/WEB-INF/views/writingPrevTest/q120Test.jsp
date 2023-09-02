@@ -267,13 +267,20 @@
 			wrongNum = JSON.stringify(wrongNum); // String으로 바꾸기
 			wrongAns = JSON.stringify(wrongAns);
 			
+		  	// submitPage.jsp로 점수 데이터 전달
+		  	var testCha = "<%= testCha %>";
+			
 			// 서버로 데이터 전송
 			$.ajax({
 			  url: '/insertWrongData',
 			  type: 'POST',
 			  dataType : 'json',
 			  contentType : "application/json;charset=UTF-8",
-			  data: JSON.stringify({wrongNum: wrongNum, wrongAns:wrongAns}),
+			  data: JSON.stringify({
+				  type: '6',
+				  testCha: testCha,
+				  wrongNum: wrongNum, 
+				  wrongAns: wrongAns}),
 			  success: function(response) {
 				  console.log('데이터 전송 성공');
 			  },
@@ -283,8 +290,6 @@
 			});
 		  	
 		  	
-		  	// submitPage.jsp로 점수 데이터 전달
-		  	var testCha = "<%= testCha %>";
 		  	var url = "${myctx}/submitPage?title="+ testCha +
 					    "&score1=" + score1 + "&score2=" + score2
 					    + "&score3=" + score3 + "&score4=" + score4 + "&score5="

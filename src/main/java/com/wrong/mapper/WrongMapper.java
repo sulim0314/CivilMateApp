@@ -13,6 +13,8 @@ public interface WrongMapper {
 	int insertWrongData(WrongVO wrong);
 	
 	// no에 해당하는 배열 2개 (하지만 String) 가져오기
-	WrongVO selectWrongData();
+	WrongVO selectWrongData(String userId);
+
+	int saveWrong(WrongVO wrong);
 	
 }

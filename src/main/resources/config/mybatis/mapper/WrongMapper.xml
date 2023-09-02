@@ -8,15 +8,25 @@
 		<selectKey keyProperty="no" resultType="_int" order="BEFORE">
 		 	SELECT sendwrong_seq.NEXTVAL FROM dual
 	    </selectKey>
-		    INSERT INTO sendwrong (no, wrongnum, wrongans)
-		    VALUES (#{no}, #{wrongNum}, #{wrongAns})
+		    INSERT INTO sendwrong (no, userid, type, cha, wrongnum, wrongans)
+		    VALUES (#{no}, #{userId}, #{type}, #{cha}, #{wrongNum}, #{wrongAns})
 	</insert>
 	
-	<select id="selectWrongData" resultType="Wrong">
-			SELECT * FROM sendwrong WHERE NO = (SELECT MAX(NO) FROM sendwrong)
+	<select id="selectWrongData" parameterType="String" resultType="Wrong">
+			SELECT * FROM
+			(SELECT * FROM sendwrong
+			 WHERE userid=#{userId}
+			 ORDER BY no DESC)
+			 WHERE rownum = 1
 	</select>
 	
-	
+	<insert id="saveWrong" parameterType="Wrong">
+		<selectKey keyProperty="no" resultType="_int" order="BEFORE">
+		 	SELECT savedwrong_seq.NEXTVAL FROM dual
+	    </selectKey>
+		    INSERT INTO savedwrong (no, userid, type, cha, test1, test2, test3, test4, test5, test6, mean)
+		    VALUES (#{no}, #{userId}, #{type}, #{cha}, #{test1}, #{test2}, #{test3}, #{test4}, #{test5}, #{test6}, #{mean})
+	</insert>
 </mapper>
 
 

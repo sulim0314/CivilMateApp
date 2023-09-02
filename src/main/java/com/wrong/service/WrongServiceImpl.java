@@ -22,15 +22,17 @@ public class WrongServiceImpl implements WrongService {
 	@Override
 	public int insertWrongData(WrongVO wrong) {
 
-		wrong.setWrongNum(wrong.getWrongNum());
-		wrong.setWrongAns(wrong.getWrongAns());
-		
 		return this.wrongMapper.insertWrongData(wrong);
 	}
 
 	@Override
-	public WrongVO selectWrongData() {
-		return this.wrongMapper.selectWrongData();
+	public WrongVO selectWrongData(String userId) {
+		return this.wrongMapper.selectWrongData(userId);
+	}
+
+	@Override
+	public int saveWrong(WrongVO wrong) {
+		return this.wrongMapper.saveWrong(wrong);
 	}
 	
 
