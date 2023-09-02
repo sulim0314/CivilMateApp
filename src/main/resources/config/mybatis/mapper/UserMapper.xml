@@ -48,5 +48,15 @@
 			where email=#{searchEmail}
 		) WHERE ROWNUM = 1
 	</select>
+	
+	<select id="getUserByEmail" resultType="User" parameterType="string">
+		SELECT *
+		FROM (
+			select *
+			from member
+			where email=#{searchEmail}
+		) WHERE ROWNUM = 1	
+	</select>
+
 
 </mapper>

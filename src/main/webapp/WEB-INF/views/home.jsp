@@ -53,7 +53,7 @@
 				</a>
 			</div>
 			<div class="col col2">
-				<a href="#" class="btn" id="btn1">필기<br>시험 결과
+				<a href="${myctx}/wrongAnswer" class="btn" id="btn1">필기<br>시험 결과
 				</a>
 			</div>
 		</div>

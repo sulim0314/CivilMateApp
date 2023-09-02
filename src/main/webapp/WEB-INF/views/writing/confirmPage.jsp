@@ -3,7 +3,7 @@
 <head><link rel="stylesheet" href="./css/testLayout.css"></head>
 <style>
 .title {
-	font-size: 14px;	
+	font-size: 15px;	
 	color: #E966A0;
 }
 .questionBox {
@@ -168,7 +168,7 @@
 		} %>
 <!-- ------------------------------------------------------------------------------- -->
 
-<form action="/selectWrongData" method="get">
+<%-- <form action="/selectWrongData" method="get">
 
 	<h2>틀린문제</h2>
 	<div id="wrongQuestions">
@@ -177,11 +177,7 @@
 	    <p>Wrong Answer: ${wrongAns}</p>
 	</div>
 	
-</form>
-
-
-
-
+</form> --%>
 <body onload="showQuestion()">
 
 	<div class="title"><%= testTitle %></div>

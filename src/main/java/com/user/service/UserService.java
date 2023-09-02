@@ -24,4 +24,8 @@ public interface UserService {
 
 	String getIdByEmail(String searchEmail);
 
+	UserVO getUserByEmail(String searchEmail);
+
+	void sendEmail(UserVO user, String searchEmail);
+
 }

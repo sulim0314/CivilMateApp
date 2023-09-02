@@ -4,6 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.mail.MailAuthenticationException;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailParseException;
+import org.springframework.mail.MailSendException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +26,9 @@ public class UserServiceImpl implements UserService {
 	@Inject
 	private UserMapper userMapper;
 
+	@Inject
+	private JavaMailSender mailSender;
+	
 	@Override
 	public int createUser(UserVO user) {
 		
@@ -105,5 +114,51 @@ public class UserServiceImpl implements UserService {
 		return userMapper.getIdByEmail(searchEmail);
 	}
 
+	@Override
+	public void sendEmail(UserVO user, String email) {
+
+		char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+                'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+        String tmpPwd = "";
+
+        // 문자 배열 길이의 값을 랜덤으로 10개를 뽑아 구문을 작성함
+        int idx = 0;
+        for (int i = 0; i < 10; i++) {
+            idx = (int) (charSet.length * Math.random());
+            tmpPwd += charSet[idx];
+        }
+		
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(email);
+            message.setFrom("civilengineeringmate");
+            message.setSubject("[토목기사 메이트] 임시 비밀번호 안내 이메일입니다.");
+            message.setText("안녕하세요.\n"
+            		+ "[토목기사 메이트] 임시비밀번호 안내 관련 이메일 입니다.\n"
+            		+ "임시 비밀번호를 발급하오니 사이트에 접속하셔서 로그인 하신 후\n"
+            		+ "반드시 비밀번호를 변경해주시기 바랍니다.\n\n"
+            		+ "임시 비밀번호 : " + tmpPwd);
+            mailSender.send(message);
+        } catch (MailParseException e) {
+            e.printStackTrace();
+        } catch (MailAuthenticationException e) {
+            e.printStackTrace();
+        } catch (MailSendException e) {
+            e.printStackTrace();
+        } catch (MailException e) {
+            e.printStackTrace();
+        }
+		
+        // 비번 바꾸기
+        user.setPwd(passwordEncoder.encode(tmpPwd)); //새 비밀번호 암호화 처리
+        userMapper.updatePwd(user);
+        
+	}
+
+	@Override
+	public UserVO getUserByEmail(String searchEmail) {
+		return userMapper.getUserByEmail(searchEmail);
+	}
 
 }

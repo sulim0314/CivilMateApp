@@ -184,8 +184,10 @@ public class UserController {
 		
 		String searchEmail = requestBody.get("email");
 		String findId = userService.getIdByEmail(searchEmail);
+		UserVO user = userService.getUserByEmail(searchEmail);
 		
 		if(findId != null) {
+			userService.sendEmail(user, searchEmail);
 			response.put("emailExist", findId);
 		} 
 		

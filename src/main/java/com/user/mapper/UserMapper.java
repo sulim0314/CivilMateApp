@@ -17,5 +17,6 @@ public interface UserMapper {
 	int deleteMember(int idx);
 	
 	String getIdByEmail(String searchEmail);
+	UserVO getUserByEmail(String searchEmail);
 
 }
