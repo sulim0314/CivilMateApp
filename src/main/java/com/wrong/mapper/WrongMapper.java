@@ -1,5 +1,7 @@
 package com.wrong.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
@@ -16,5 +18,7 @@ public interface WrongMapper {
 	WrongVO selectWrongData(String userId);
 
 	int saveWrong(WrongVO wrong);
+
+	List<WrongVO> getSavedWrongByUserId(String userId);
 	
 }

@@ -34,6 +34,11 @@ public class WrongServiceImpl implements WrongService {
 	public int saveWrong(WrongVO wrong) {
 		return this.wrongMapper.saveWrong(wrong);
 	}
+
+	@Override
+	public List<WrongVO> getSavedWrongByUserId(String userId) {
+		return this.wrongMapper.getSavedWrongByUserId(userId);
+	}
 	
 
 	

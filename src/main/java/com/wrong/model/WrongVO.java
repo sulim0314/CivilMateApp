@@ -1,5 +1,6 @@
 package com.wrong.model;
 
+import java.sql.Date;
 import java.util.List;
 
 import lombok.Data;
@@ -21,5 +22,7 @@ public class WrongVO {
 	private int test5;
 	private int test6;
 	private String mean;
+	
+	private Date wdate;
 }
 

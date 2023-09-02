@@ -24,9 +24,15 @@
 		<selectKey keyProperty="no" resultType="_int" order="BEFORE">
 		 	SELECT savedwrong_seq.NEXTVAL FROM dual
 	    </selectKey>
-		    INSERT INTO savedwrong (no, userid, type, cha, test1, test2, test3, test4, test5, test6, mean)
-		    VALUES (#{no}, #{userId}, #{type}, #{cha}, #{test1}, #{test2}, #{test3}, #{test4}, #{test5}, #{test6}, #{mean})
+		    INSERT INTO savedwrong (no, userid, type, cha, test1, test2, test3, test4, test5, test6, mean, wdate)
+		    VALUES (#{no}, #{userId}, #{type}, #{cha}, #{test1}, #{test2}, #{test3}, #{test4}, #{test5}, #{test6}, #{mean, jdbcType=VARCHAR}, SYSDATE)
 	</insert>
+	
+	<!-- 사용자 ID에 해당하는 savedwrong 데이터 조회 -->
+    <select id="getSavedWrongByUserId" parameterType="String" resultType="Wrong">
+        SELECT * FROM savedwrong WHERE userid = #{userId} ORDER BY no DESC
+    </select>
+	
 </mapper>
 
 

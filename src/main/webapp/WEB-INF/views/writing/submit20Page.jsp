@@ -69,6 +69,32 @@
 	font-size: 30px;
 	font-weight: bold;
 }
+.btn-confirm {
+	color: black;
+	display: inline-block;
+	padding: 8px 16px;
+	border: none;
+	background-color: #B6EAFA;
+	border-radius: 4px;
+	width: 49%;
+	height: 1cm;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 13px;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.btn-confirm:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.ex {
+	color: gray;
+	font-size: 10px;
+}
 </style>
 
 <%  String testCha = request.getParameter("title");
@@ -190,7 +216,67 @@
 		</tr>
 	</table>
 	
+	<button class="btn-confirm" data-toggle="modal" onclick="saveWrongData20()" data-target="#myModal">시험 결과 저장</button>
+	<button class="btn-confirm" id="btn-confirm" onclick="sendTestCha()">오답 확인</button>
 	
+	<div class="ex">* 시험 결과를 저장하면, 시험 결과 확인 페이지에서 확인하실 수 있습니다.</div>
+	
+	
+	<div class="container">
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title" style="font-size: 16px;">알림</div>
+					</div>
+					<div class="modal-body">시험 결과가 저장되었습니다.</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal">확인</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<script>
+		function sendTestCha() {
+	 		// confirm20Page.jsp로 점수랑 type 데이터 전달
+		  	var testCha = "<%= testCha %>";
+		  	var type = "<%= sub %>";
+		  	var url = "${myctx}/confirm20Page?testCha="+ testCha +"?type="+ type;
+		  	// 페이지 이동
+		  	window.location.href = url;
+		}
+		
+		function saveWrongData20() {
+			
+			var type = "<%= sub %>";
+			var testCha = "<%= testCha %>";
+			var score = "<%= score %>";
+			
+			$.ajax({
+				url: '/saveWrongData20',
+				type: 'POST',
+				dataType: 'json',
+				contentType: "application/json;charset=UTF-8",
+				data: JSON.stringify({
+					type: type,
+					testCha: testCha,
+					score: score}),
+				success: function(response) {
+					console.log('데이터 전송 성공');
+				},
+				error: function(xhr, status, error) {
+					console.error('데이터 전송 실패:', error);					
+				}
+			});
+			
+		}
+
+
+</script>
 
 
 

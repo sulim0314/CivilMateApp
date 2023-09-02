@@ -16,4 +16,6 @@ public interface WrongService {
 	// saveWrong 테이블에 저장한 것 넣기
 	int saveWrong(WrongVO wrong);
 
+	List<WrongVO> getSavedWrongByUserId(String userId);
+
 }

@@ -277,7 +277,7 @@
 			  dataType : 'json',
 			  contentType : "application/json;charset=UTF-8",
 			  data: JSON.stringify({
-				  type: '6',
+				  type: '7',
 				  testCha: testCha,
 				  wrongNum: wrongNum, 
 				  wrongAns: wrongAns}),

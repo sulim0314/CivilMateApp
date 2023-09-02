@@ -96,16 +96,45 @@ public class WrongController {
 		wrong.setTest6(test6);
 		wrong.setMean(mean);
 		
-		System.out.println(userId);
-		System.out.println(type);
-		System.out.println(cha);
-		System.out.println(test1);
-		System.out.println(test2);
-		System.out.println(test3);
-		System.out.println(test4);
-		System.out.println(test5);
-		System.out.println(test6);
-		System.out.println(mean);
+		int n = wrongService.saveWrong(wrong);
+		
+		ModelMap map = new ModelMap();
+		map.addAttribute("result", n);
+		
+		return map;
+		
+	}
+	
+	@PostMapping(value="/saveWrongData20", produces = "application/json")
+	@ResponseBody
+	public ModelMap saveWrongData20(@RequestBody Map<String, String> requestBody, HttpSession session) {
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		String userId = loginUser.getUserid();
+		
+		String type = requestBody.get("type");
+		String cha = requestBody.get("testCha");
+		
+		WrongVO wrong = new WrongVO();
+		int score = Integer.parseInt(requestBody.get("score"));
+		
+		if(type.equals("1")) {
+			wrong.setTest1(score);
+		} else if(type.equals("2")) {
+			wrong.setTest2(score);
+		} else if(type.equals("3")) {
+			wrong.setTest3(score);
+		} else if(type.equals("4")) {
+			wrong.setTest4(score);
+		} else if(type.equals("5")) {
+			wrong.setTest5(score);
+		} else if(type.equals("6")) {
+			wrong.setTest6(score);
+		}
+
+		wrong.setUserId(userId);
+		wrong.setType(type);
+		wrong.setCha(cha);
 		
 		int n = wrongService.saveWrong(wrong);
 		
@@ -116,7 +145,20 @@ public class WrongController {
 		
 	}
 	
-	
+	@GetMapping(value="/confirm20Page")
+	public String selectWrongData20(Model m, HttpSession session) {
+		
+//		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+//		String userId = loginUser.getUserid();
+//		
+//	    // 데이터베이스에서 데이터 가져오기
+//	    WrongVO wrongData = wrongService.selectWrongData(userId); 
+//	    
+//	    m.addAttribute("wrongNum", wrongData.getWrongNum());
+//	    m.addAttribute("wrongAns", wrongData.getWrongAns());
+	    
+	    return "writing/confirm20Page";
+	}
 	
 } 
 

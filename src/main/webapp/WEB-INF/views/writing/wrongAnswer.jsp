@@ -56,36 +56,115 @@
 	<div class="title">필기 시험 결과</div>
 	<div class="explain1">저장한 문제를 확인하실 수 있습니다.</div>
 
-	<div class="box">
-		<div class="container">
-			<div class="row">
-				<div class="col date">2023년 8월 8일</div>
-			</div>
-			<div class="row">
-				<div class="col jumsu">응용역학 ▶ 50점</div>
-			</div>
-			<div class="row">
-				<div class="col jumsu">측량학 ▶ 70점</div>
-			</div>
-			<div class="row">
-				<div class="col jumsu">수리학 및 수문학 ▶ 80점</div>
-			</div>
-			<div class="row">
-				<div class="col jumsu">철근콘크리트 및 강구조 ▶ 70점</div>
-			</div>
-			<div class="row">
-				<div class="col jumsu">토질 및 기초 ▶ 80점</div>
-			</div>
-			<div class="row">
-				<div class="col jumsu">상하수도공학 ▶ 100점</div>
-			</div>
-			
-			<!-- 전체시험 봤을 때 -->
-			<div class="row">
-				<div class="col jumsu total">평균 : XX점  결과 : PASS</div>
-			</div>
-		</div>
-	</div>
+	<c:forEach items="${savedWrongList}" var="savedWrong">
+	
+		<c:choose>
+	        <c:when test="${savedWrong.type == '1'}">
+	            <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">응용역학 ▶  ${savedWrong.test1}점</div>
+						</div>
+					</div>
+				</div>
+	        </c:when>
+	        <c:when test="${savedWrong.type == '2'}">
+	            <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">측량학 ▶ ${savedWrong.test2}점</div>
+						</div>
+					</div>
+				</div>
+	        </c:when>
+	        <c:when test="${savedWrong.type == '3'}">
+	            <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">수리학 및 수문학 ▶ ${savedWrong.test3}점</div>
+						</div>
+					</div>
+				</div>
+	        </c:when>
+	        <c:when test="${savedWrong.type == '4'}">
+	            <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">철근콘크리트 및 강구조 ▶ ${savedWrong.test4}점</div>
+						</div>
+					</div>
+				</div>
+	        </c:when>
+	        <c:when test="${savedWrong.type == '5'}">
+	            <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">토질 및 기초 ▶ ${savedWrong.test5}점</div>
+						</div>
+					</div>
+				</div>
+	        </c:when>
+	        <c:when test="${savedWrong.type == '6'}">
+	            <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">상하수도공학 ▶  ${savedWrong.test6}점</div>
+						</div>
+					</div>
+				</div>
+	        </c:when>
+	        <c:when test="${savedWrong.type == '7'}">
+		        <div class="box">
+					<div class="container">
+						<div class="row">
+							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">응용역학 ▶  ${savedWrong.test1}점</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">측량학 ▶ ${savedWrong.test2}점</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">수리학 및 수문학 ▶ ${savedWrong.test3}점</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">철근콘크리트 및 강구조 ▶ ${savedWrong.test4}점</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">토질 및 기초 ▶ ${savedWrong.test5}점</div>
+						</div>
+						<div class="row">
+							<div class="col jumsu">상하수도공학 ▶  ${savedWrong.test6}점</div>
+						</div>
+						
+						<!-- 전체시험 봤을 때 -->
+						<div class="row">
+							<div class="col jumsu total">평균 : ${savedWrong.mean}점</div>
+						</div>
+					</div>
+				</div>      
+	        </c:when>
+	    </c:choose>
+    </c:forEach>
 
 	<!-- 응용역학, 측량학, 수리학 및 수문학, 철근콘크리트 및 강구조, 토질 및 기초, 상하수도공학 -->
 
