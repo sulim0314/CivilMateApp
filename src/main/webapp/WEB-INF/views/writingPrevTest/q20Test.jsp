@@ -231,6 +231,10 @@
 		// 선택한 답을 저장하는 배열
 		var selectedAnswers = [9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9];
 
+		// 결과 보낼 배열------------------
+		var wrongNum = [];
+		var wrongAns = [];
+		
 		// 각 과목의 점수를 저장하는 변수들
 		var score1 = 0;
 		var score2 = 0;
@@ -252,6 +256,8 @@
 		  if ((parseInt(choiceIndex) + 1) === question.correctAnswer) {
 		    return 5; // 정답인 경우 5점 반환
 		  } else {
+			  wrongNum.push(questionIndex + 1); // 틀린 문제 번호를 배열에 추가 (index 말고)
+			  wrongAns.push(parseInt(choiceIndex) + 1); // 체크한 답을 배열에 추가 (index 말고)
 		    return 0; // 오답인 경우 0점 반환
 		  }
 		}
@@ -280,6 +286,32 @@
 		    }
 		  }
 
+		// 틀린 문제 및 틀린 답 배열 전송하기 -------------------
+			wrongNum = JSON.stringify(wrongNum); // String으로 바꾸기
+			wrongAns = JSON.stringify(wrongAns);
+			
+		  	// submitPage.jsp로 점수 데이터 전달
+		  	var testCha = "<%= testCha %>";
+			
+			// 서버로 데이터 전송
+			$.ajax({
+			  url: '/insertWrongData',
+			  type: 'POST',
+			  dataType : 'json',
+			  contentType : "application/json;charset=UTF-8",
+			  data: JSON.stringify({
+				  type: testType,
+				  testCha: testCha,
+				  wrongNum: wrongNum, 
+				  wrongAns: wrongAns}),
+			  success: function(response) {
+				  console.log('데이터 전송 성공');
+			  },
+			  error: function(xhr, status, error) {
+				  console.error('데이터 전송 실패:', error);
+			  }
+			});
+		  
 		  // 예시: submitPage.jsp로 점수 데이터 전달
 		  var testCha = "<%= testCha %>";
 		  var url = "${myctx}/submit20Page?title="+ testCha + "&sub=" + testType +

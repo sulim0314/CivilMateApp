@@ -39,7 +39,6 @@
 	font-size: 11px;
 	font-weight: bold;
 	color: #9E9FA5;
-	padding-bottom: 10px;
 }
 .jumsu {
 	padding-top: 2px;
@@ -49,6 +48,14 @@
 	padding-top: 10px;
 	color: #0A6EBD;
 }
+.test-title {
+	font-size: 12px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	color: #61677A;
+	text-align: center;
+}
+	
 </style>
 </head>
 
@@ -66,6 +73,9 @@
 							<div class="col date"> ${savedWrong.wdate}</div>
 						</div>
 						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
+						</div>
+						<div class="row">
 							<div class="col jumsu">응용역학 ▶  ${savedWrong.test1}점</div>
 						</div>
 					</div>
@@ -76,6 +86,9 @@
 					<div class="container">
 						<div class="row">
 							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
 						</div>
 						<div class="row">
 							<div class="col jumsu">측량학 ▶ ${savedWrong.test2}점</div>
@@ -90,6 +103,9 @@
 							<div class="col date"> ${savedWrong.wdate}</div>
 						</div>
 						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
+						</div>
+						<div class="row">
 							<div class="col jumsu">수리학 및 수문학 ▶ ${savedWrong.test3}점</div>
 						</div>
 					</div>
@@ -100,6 +116,9 @@
 					<div class="container">
 						<div class="row">
 							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
 						</div>
 						<div class="row">
 							<div class="col jumsu">철근콘크리트 및 강구조 ▶ ${savedWrong.test4}점</div>
@@ -114,6 +133,9 @@
 							<div class="col date"> ${savedWrong.wdate}</div>
 						</div>
 						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
+						</div>
+						<div class="row">
 							<div class="col jumsu">토질 및 기초 ▶ ${savedWrong.test5}점</div>
 						</div>
 					</div>
@@ -126,6 +148,9 @@
 							<div class="col date"> ${savedWrong.wdate}</div>
 						</div>
 						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
+						</div>
+						<div class="row">
 							<div class="col jumsu">상하수도공학 ▶  ${savedWrong.test6}점</div>
 						</div>
 					</div>
@@ -136,6 +161,9 @@
 					<div class="container">
 						<div class="row">
 							<div class="col date"> ${savedWrong.wdate}</div>
+						</div>
+						<div class="row">
+						  <div class="col test-title">${savedWrong.testTitle}</div>
 						</div>
 						<div class="row">
 							<div class="col jumsu">응용역학 ▶  ${savedWrong.test1}점</div>
@@ -155,7 +183,6 @@
 						<div class="row">
 							<div class="col jumsu">상하수도공학 ▶  ${savedWrong.test6}점</div>
 						</div>
-						
 						<!-- 전체시험 봤을 때 -->
 						<div class="row">
 							<div class="col jumsu total">평균 : ${savedWrong.mean}점</div>

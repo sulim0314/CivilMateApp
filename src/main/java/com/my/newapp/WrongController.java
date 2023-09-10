@@ -147,15 +147,15 @@ public class WrongController {
 	
 	@GetMapping(value="/confirm20Page")
 	public String selectWrongData20(Model m, HttpSession session) {
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		String userId = loginUser.getUserid();
 		
-//		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
-//		String userId = loginUser.getUserid();
-//		
-//	    // 데이터베이스에서 데이터 가져오기
-//	    WrongVO wrongData = wrongService.selectWrongData(userId); 
-//	    
-//	    m.addAttribute("wrongNum", wrongData.getWrongNum());
-//	    m.addAttribute("wrongAns", wrongData.getWrongAns());
+	    // 데이터베이스에서 데이터 가져오기
+	    WrongVO wrongData = wrongService.selectWrongData(userId); 
+	    
+	    m.addAttribute("type", wrongData.getType());
+	    m.addAttribute("wrongNum", wrongData.getWrongNum());
+	    m.addAttribute("wrongAns", wrongData.getWrongAns());
 	    
 	    return "writing/confirm20Page";
 	}

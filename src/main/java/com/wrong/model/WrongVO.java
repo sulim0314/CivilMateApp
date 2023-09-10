@@ -24,5 +24,7 @@ public class WrongVO {
 	private String mean;
 	
 	private Date wdate;
+	
+	private String testTitle;
 }
 
