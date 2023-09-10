@@ -127,42 +127,42 @@
 			// 선택한 회차 값 가져오기
 			var testCha = document.getElementById("test-cha").value;
 			// 선택한 회차에 해당하는 URL로 이동
-			window.location.href = "${myctx}/q1Test?testCha="+testCha; // 회차 알려주기	
+			window.location.href = "${myctx}/writing/q1Test?testCha="+testCha; // 회차 알려주기	
 		}
 
 		function takeFullTest() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q120Test?testCha=" + testCha; // 회차 알려주기
+			window.location.href = "${myctx}/writing/q120Test?testCha=" + testCha; // 회차 알려주기
 		}
 		
 		function take20Test1() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=1"  ; // 1과목
+			window.location.href = "${myctx}/writing/q20Test?testCha="+testCha+"&sub=1"  ; // 1과목
 		}
 		
 		function take20Test2() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=2"  ; // 2과목
+			window.location.href = "${myctx}/writing/q20Test?testCha="+testCha+"&sub=2"  ; // 2과목
 		}
 		
 		function take20Test3() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=3"  ; // 3과목
+			window.location.href = "${myctx}/writing/q20Test?testCha="+testCha+"&sub=3"  ; // 3과목
 		}
 		
 		function take20Test4() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=4"  ; // 4과목
+			window.location.href = "${myctx}/writing/q20Test?testCha="+testCha+"&sub=4"  ; // 4과목
 		}
 		
 		function take20Test5() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=5"  ; // 5과목
+			window.location.href = "${myctx}/writing/q20Test?testCha="+testCha+"&sub=5"  ; // 5과목
 		}
 		
 		function take20Test6() {
 			var testCha = document.getElementById("test-cha").value;
-			window.location.href = "${myctx}/q20Test?testCha="+testCha+"&sub=6"  ; // 6과목
+			window.location.href = "${myctx}/writing/q20Test?testCha="+testCha+"&sub=6"  ; // 6과목
 		}
 		
 	</script>

@@ -49,11 +49,11 @@
 	<div class="box">
 		<div class="row row1">
 			<div class="col co1 text-right">
-				<a href="${myctx}/prev_test" class="btn" id="btn1">필기<br>기출문제
+				<a href="${myctx}/writing/prev_test" class="btn" id="btn1">필기<br>기출문제
 				</a>
 			</div>
 			<div class="col col2">
-				<a href="${myctx}/wrongAnswer" class="btn" id="btn1">필기<br>시험 결과
+				<a href="${myctx}/writing/wrongAnswer" class="btn" id="btn1">필기<br>시험 결과
 				</a>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 
 		<div class="row row2">
 			<div class="col col1">
-				<a href="${myctx}/qnaRegister" class="btn" id="btn2">실기<br>문제
+				<a href="${myctx}/writing/qnaRegister" class="btn" id="btn2">실기<br>문제
 					등록
 				</a>
 			</div>

@@ -167,7 +167,6 @@
     <%	testTitle = "[2010년도 1회 토목기사 필기 오답]";
 		} %>
 <!-- ------------------------------------------------------------------------------- -->
-
 <%-- <form action="/selectWrongData" method="get">
 
 	<h2>틀린문제</h2>
@@ -188,6 +187,7 @@
 	
 	var wrongNum = '${wrongNum}';
 	var wrongAns = '${wrongAns}';
+	var testType = '${type}';
 	
 	// 문자열을 파싱하여 숫자 배열로 변환
 	var wrongNumArray = JSON.parse(wrongNum);
@@ -198,29 +198,48 @@
 					.getElementById("questionContainer");
 			questionContainer.innerHTML = ""; // 문제 컨테이너 초기화
 
-			var subjectTitles = [ "1과목 : 응용역학", "2과목 : 측량학", "3과목 : 수리학 및 수문학",
+/* 			var subjectTitles = [ "1과목 : 응용역학", "2과목 : 측량학", "3과목 : 수리학 및 수문학",
 					"4과목 : 철근콘크리트 및 강구조", "5과목 : 토질 및 기초", "6과목 : 상하수도공학" ];
-
-			var currentSubjectIndex = 0;
-
-			for (var i = 0; i < wrongNumArray.length; i++) {
+ */
+			/* var currentSubjectIndex = 0; */
+			
+			var startIdx;
+			var endIdx;
+			
+			if (testType === "1") {
+			  startIdx = 0; endIdx = 20;
+			} else if (testType === "2") {
+			  startIdx = 20; endIdx = 40;
+			} else if (testType === "3") {
+			  startIdx = 40; endIdx = 60;
+			} else if (testType === "4") {
+			  startIdx = 60; endIdx = 80;
+			} else if (testType === "5") {
+			  startIdx = 80; endIdx = 100;
+			} else if (testType === "6") {
+			  startIdx = 100; endIdx = 120;
+			} 
+			
+			var length = wrongNumArray.length-100;
+			
+			for (var i = startIdx; i < startIdx+length; i++) {
 				
 				var questionNumberIndex = wrongNumArray[i]-1;
 				var subjectIndex = Math.ceil(questionNumberIndex / 20);
-				var subjectTitle = subjectTitles[subjectIndex];
-				
+/* 				var subjectTitle = subjectTitles[subjectIndex];
+ */				
 				var questionDiv = createQuestionDiv(wrongNumArray[i]-1);
 				questionContainer.appendChild(questionDiv);
 	
 			}
 		}
 
-		function createTitleElement(title) {
+/* 		function createTitleElement(title) {
 			var titleElement = document.createElement("div");
 			titleElement.className = "subjectTitle";
 			titleElement.innerHTML = title;
 			return titleElement;
-		}
+		} */
 
 		function createChoiceInput(questionIndex, choiceIndex) {
 			var choiceInput = document.createElement("input");

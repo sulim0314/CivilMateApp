@@ -245,7 +245,7 @@
 	 		// confirm20Page.jsp로 점수랑 type 데이터 전달
 		  	var testCha = "<%= testCha %>";
 		  	var type = "<%= sub %>";
-		  	var url = "${myctx}/confirm20Page?testCha="+ testCha +"&type="+ type;
+		  	var url = "${myctx}/wrong/confirm20Page?testCha="+ testCha +"&type="+ type;
 		  	// 페이지 이동
 		  	window.location.href = url;
 		}
@@ -257,7 +257,7 @@
 			var score = "<%= score %>";
 			
 			$.ajax({
-				url: '/saveWrongData20',
+				url: '/wrong/saveWrongData20',
 				type: 'POST',
 				dataType: 'json',
 				contentType: "application/json;charset=UTF-8",

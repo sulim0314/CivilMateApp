@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<head><link rel="stylesheet" href="./css/testLayout.css"></head>
+<head><link rel="stylesheet" href="${myctx}/css/testLayout.css"></head>
 <script src="./js/y2022c2Test.js"></script>
 <!--  ------------------------------------------------------ -->
 
@@ -124,7 +124,7 @@
 		  totalScore = score1 + score2 + score3 + score4 + score5 + score6;
 
 		  // 예시: submitPage.jsp로 점수 데이터 전달
-		  var url = "${myctx}/submitPage?title=2022년도%202회" +
+		  var url = "${myctx}/writing/submitPage?title=2022년도%202회" +
 		    "&score1=" + score1 + "&score2=" + score2
 		    + "&score3=" + score3 + "&score4=" + score4 + "&score5="
 		    + score5 + "&score6=" + score6;

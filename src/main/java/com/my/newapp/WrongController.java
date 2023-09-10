@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.user.model.UserVO;
@@ -20,6 +21,7 @@ import com.wrong.service.WrongService;
 
 
 @Controller
+@RequestMapping("/wrong")
 public class WrongController { 
 	
 	@Autowired

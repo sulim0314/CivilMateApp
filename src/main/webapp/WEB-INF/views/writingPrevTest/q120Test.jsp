@@ -1,137 +1,137 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<head><link rel="stylesheet" href="./css/testLayout.css"></head>
+<head><link rel="stylesheet" href="${myctx}/css/testLayout.css"></head>
 
 <!-- js 참조 (questions배열 + 이미지 여부) --------------------------------- -->
 <%  String testCha = request.getParameter("testCha");
 	String testTitle = "";
 
     if (testCha.equals("y2022c2")) { %>
-        <script src="./js/y2022c2Test.js"></script>
+        <script src="${myctx}/js/y2022c2Test.js"></script>
     <%	testTitle = "[2022년도 2회 토목기사 필기]";
     	} else if (testCha.equals("y2022c1")) { %>
-        <script src="./js/y2022c1Test.js"></script>
+        <script src="${myctx}/js/y2022c1Test.js"></script>
     <%	testTitle = "[2022년도 1회 토목기사 필기]";
     
     	} else if (testCha.equals("y2021c3")) { %>
-        <script src="./js/y2021c3Test.js"></script>
+        <script src="${myctx}/js/y2021c3Test.js"></script>
     <%	testTitle = "[2021년도 3회 토목기사 필기]";
     	} else if (testCha.equals("y2021c2")) { %>
-        <script src="./js/y2021c2Test.js"></script>
+        <script src="${myctx}/js/y2021c2Test.js"></script>
     <%  testTitle = "[2021년도 2회 토목기사 필기]";
     	} else if (testCha.equals("y2021c1")) { %>
-        <script src="./js/y2021c1Test.js"></script>
+        <script src="${myctx}/js/y2021c1Test.js"></script>
     <%	testTitle = "[2021년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2020c4")) { %>
-        <script src="./js/y2020c4Test.js"></script>
+        <script src="${myctx}/js/y2020c4Test.js"></script>
     <%	testTitle = "[2020년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2020c3")) { %>
-        <script src="./js/y2020c3Test.js"></script>
+        <script src="${myctx}/js/y2020c3Test.js"></script>
     <%	testTitle = "[2020년도 3회 토목기사 필기]";
 		} else if (testCha.equals("y2020c12")) { %>
-        <script src="./js/y2020c12Test.js"></script>
+        <script src="${myctx}/js/y2020c12Test.js"></script>
     <%	testTitle = "[2020년도 12회 토목기사 필기]";
     
 		} else if (testCha.equals("y2019c3")) { %>
-        <script src="./js/y2019c3Test.js"></script>
+        <script src="${myctx}/js/y2019c3Test.js"></script>
     <%	testTitle = "[2019년도 3회 토목기사 필기]";
 		} else if (testCha.equals("y2019c2")) { %>
-        <script src="./js/y2019c2Test.js"></script>
+        <script src="${myctx}/js/y2019c2Test.js"></script>
     <%	testTitle = "[2019년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2019c1")) { %>
-        <script src="./js/y2019c1Test.js"></script>
+        <script src="${myctx}/js/y2019c1Test.js"></script>
     <%	testTitle = "[2019년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2018c3")) { %>
-        <script src="./js/y2018c3Test.js"></script>
+        <script src="${myctx}/js/y2018c3Test.js"></script>
     <%	testTitle = "[2018년도 3회 토목기사 필기]";
 		} else if (testCha.equals("y2018c2")) { %>
-        <script src="./js/y2018c2Test.js"></script>
+        <script src="${myctx}/js/y2018c2Test.js"></script>
     <%	testTitle = "[2018년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2018c1")) { %>
-        <script src="./js/y2018c1Test.js"></script>
+        <script src="${myctx}/js/y2018c1Test.js"></script>
     <%	testTitle = "[2018년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2017c4")) { %>
-        <script src="./js/y2017c4Test.js"></script>
+        <script src="${myctx}/js/y2017c4Test.js"></script>
     <%	testTitle = "[2017년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2017c2")) { %>
-        <script src="./js/y2017c2Test.js"></script>
+        <script src="${myctx}/js/y2017c2Test.js"></script>
     <%	testTitle = "[2017년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2017c1")) { %>
-        <script src="./js/y2017c1Test.js"></script>
+        <script src="${myctx}/js/y2017c1Test.js"></script>
     <%	testTitle = "[2017년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2016c4")) { %>
-        <script src="./js/y2016c4Test.js"></script>
+        <script src="${myctx}/js/y2016c4Test.js"></script>
     <%	testTitle = "[2016년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2016c2")) { %>
-        <script src="./js/y2016c2Test.js"></script>
+        <script src="${myctx}/js/y2016c2Test.js"></script>
     <%	testTitle = "[2016년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2016c1")) { %>
-        <script src="./js/y2016c1Test.js"></script>
+        <script src="${myctx}/js/y2016c1Test.js"></script>
     <%	testTitle = "[2016년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2015c4")) { %>
-        <script src="./js/y2015c4Test.js"></script>
+        <script src="${myctx}/js/y2015c4Test.js"></script>
     <%	testTitle = "[2015년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2015c2")) { %>
-        <script src="./js/y2015c2Test.js"></script>
+        <script src="${myctx}/js/y2015c2Test.js"></script>
     <%	testTitle = "[2015년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2015c1")) { %>
-        <script src="./js/y2015c1Test.js"></script>
+        <script src="${myctx}/js/y2015c1Test.js"></script>
     <%	testTitle = "[2015년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2014c4")) { %>
-        <script src="./js/y2014c4Test.js"></script>
+        <script src="${myctx}/js/y2014c4Test.js"></script>
     <%	testTitle = "[2014년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2014c2")) { %>
-        <script src="./js/y2014c2Test.js"></script>
+        <script src="${myctx}/js/y2014c2Test.js"></script>
     <%	testTitle = "[2014년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2014c1")) { %>
-        <script src="./js/y2014c1Test.js"></script>
+        <script src="${myctx}/js/y2014c1Test.js"></script>
     <%	testTitle = "[2014년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2013c4")) { %>
-        <script src="./js/y2013c4Test.js"></script>
+        <script src="${myctx}/js/y2013c4Test.js"></script>
     <%	testTitle = "[2013년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2013c2")) { %>
-        <script src="./js/y2013c2Test.js"></script>
+        <script src="${myctx}/js/y2013c2Test.js"></script>
     <%	testTitle = "[2013년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2013c1")) { %>
-        <script src="./js/y2013c1Test.js"></script>
+        <script src="${myctx}/js/y2013c1Test.js"></script>
     <%	testTitle = "[2013년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2012c4")) { %>
-        <script src="./js/y2012c4Test.js"></script>
+        <script src="${myctx}/js/y2012c4Test.js"></script>
     <%	testTitle = "[2012년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2012c2")) { %>
-        <script src="./js/y2012c2Test.js"></script>
+        <script src="${myctx}/js/y2012c2Test.js"></script>
     <%	testTitle = "[2012년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2012c1")) { %>
-        <script src="./js/y2012c1Test.js"></script> 
+        <script src="${myctx}/js/y2012c1Test.js"></script> 
     <%	testTitle = "[2012년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2011c4")) { %>
-        <script src="./js/y2011c4Test.js"></script>
+        <script src="${myctx}/js/y2011c4Test.js"></script>
     <%	testTitle = "[2011년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2011c2")) { %>
-        <script src="./js/y2011c2Test.js"></script>
+        <script src="${myctx}/js/y2011c2Test.js"></script>
     <%	testTitle = "[2011년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2011c1")) { %>
-        <script src="./js/y2011c1Test.js"></script>
+        <script src="${myctx}/js/y2011c1Test.js"></script>
     <%	testTitle = "[2011년도 1회 토목기사 필기]";
     
 		} else if (testCha.equals("y2010c4")) { %>
-        <script src="./js/y2010c4Test.js"></script>
+        <script src="${myctx}/js/y2010c4Test.js"></script>
     <%	testTitle = "[2010년도 4회 토목기사 필기]";
 		} else if (testCha.equals("y2010c2")) { %>
-        <script src="./js/y2010c2Test.js"></script>
+        <script src="${myctx}/js/y2010c2Test.js"></script>
     <%	testTitle = "[2010년도 2회 토목기사 필기]";
 		} else if (testCha.equals("y2010c1")) { %>
-        <script src="./js/y2010c1Test.js"></script>
+        <script src="${myctx}/js/y2010c1Test.js"></script>
     <%	testTitle = "[2010년도 1회 토목기사 필기]";
 		} %>
 
@@ -272,7 +272,7 @@
 			
 			// 서버로 데이터 전송
 			$.ajax({
-			  url: '/insertWrongData',
+			  url: '/wrong/insertWrongData',
 			  type: 'POST',
 			  dataType : 'json',
 			  contentType : "application/json;charset=UTF-8",
@@ -290,7 +290,7 @@
 			});
 		  	
 		  	
-		  	var url = "${myctx}/submitPage?title="+ testCha +
+		  	var url = "${myctx}/writing/submitPage?title="+ testCha +
 					    "&score1=" + score1 + "&score2=" + score2
 					    + "&score3=" + score3 + "&score4=" + score4 + "&score5="
 					    + score5 + "&score6=" + score6;

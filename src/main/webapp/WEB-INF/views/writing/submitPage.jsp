@@ -284,7 +284,7 @@
 		function sendTestCha() {
 	 		// confirmPage.jsp로 점수 데이터 전달
 		  	var testCha = "<%= testCha %>";
-		  	var url = "${myctx}/confirmPage?testCha="+ testCha;
+		  	var url = "${myctx}/wrong/confirmPage?testCha="+ testCha;
 		  	// 페이지 이동
 		  	window.location.href = url;
 		}
@@ -301,7 +301,7 @@
 			var mean = "<%= formattedMean %>";
 			
 			$.ajax({
-				url: '/saveWrongData',
+				url: '/wrong/saveWrongData',
 				type: 'POST',
 				dataType: 'json',
 				contentType: "application/json;charset=UTF-8",
