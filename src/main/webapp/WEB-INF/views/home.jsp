@@ -61,7 +61,7 @@
 
 		<div class="row row2">
 			<div class="col col1">
-				<a href="${myctx}/writing/qnaRegister" class="btn" id="btn2">실기<br>문제
+				<a href="${myctx}/practical/qnaRegister" class="btn" id="btn2">실기<br>문제
 					등록
 				</a>
 			</div>

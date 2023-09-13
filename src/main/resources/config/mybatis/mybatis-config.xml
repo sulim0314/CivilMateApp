@@ -8,12 +8,14 @@
 	<typeAliases>
 		<typeAlias type="com.wrong.model.WrongVO" alias="Wrong"/>
 		<typeAlias type="com.user.model.UserVO" alias="User"/>
+		<typeAlias type="com.practical.model.PracticalVO" alias="Practical"/>
 	</typeAliases>
 	
 	<!-- mapper 정의 =========================================  -->
 	<mappers>
 		<mapper resource="config/mybatis/mapper/WrongMapper.xml" />
 		<mapper resource="config/mybatis/mapper/UserMapper.xml" />
+		<mapper resource="config/mybatis/mapper/PracticalMapper.xml" />
 		<!-- SQL문을 모아놓은 파일 -->
 	</mappers>
 </configuration>

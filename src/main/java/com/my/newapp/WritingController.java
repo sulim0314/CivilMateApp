@@ -203,10 +203,5 @@ public class WritingController {
 		return "writing/submit20Page";
 	} //-----------------------------------------
 
-	@GetMapping("/qnaRegister")
-	public String qnaRegister() {
-		
-		return "practical/qnaRegister";
-	}
 
 }

@@ -32,14 +32,6 @@
 	<!-- Password Security -->
 	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 	
-	<!-- Interceptor 설정 ===================================== -->
-	<interceptors>
-		<interceptor>
-			<mapping path="/user/**"/>
-			<beans:bean class="com.common.interceptor.LoginCheckInterceptor"/>	
-		</interceptor>	
-	</interceptors>
-	
 	<!-- 메일 설정 -->
 	<beans:bean
 		class="org.springframework.mail.javamail.JavaMailSenderImpl"
@@ -58,10 +50,6 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>
-	
-	
-	
-	
 	
 	<!-- 파일업로드를 위한  MultipartResolver 설정 =============================== -->
 	<!--주의: 빈의 id는 반드시 multipartResolver로 등록해야 한다.다른 아이디를 주면 DispatcherServlet이 MultipartResolver로
@@ -82,10 +70,7 @@
 		<interceptor>
 			<mapping path="/wrong/**"/>
 			<mapping path="/writing/**"/>
-			
-<!-- 			<mapping path="/user/**"/>
-			<mapping path="/sitter/user/**"/>
-			<mapping path="/general/user/**"/> -->
+			<mapping path="/practical/**"/>
 			<beans:bean class="com.common.interceptor.LoginCheckInterceptor" />
 		</interceptor>
 	</interceptors> 
@@ -95,6 +80,7 @@
 	<context:component-scan base-package="com.my.newapp" />
 	<context:component-scan base-package="com.wrong.mapper,com.wrong.model,com.wrong.service" />
 	<context:component-scan base-package="com.user.mapper,com.user.model,com.user.service" />
+	<context:component-scan base-package="com.practical.mapper,com.practical.model,com.practical.service" />
 	
 	
 </beans:beans>

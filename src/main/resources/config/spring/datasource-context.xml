@@ -53,6 +53,7 @@
 	-->
 	<mybatis-spring:scan base-package="com.wrong.mapper"/>
 	<mybatis-spring:scan base-package="com.user.mapper"/>
+	<mybatis-spring:scan base-package="com.practical.mapper"/>
 	
 </beans>
 
