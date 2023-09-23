@@ -22,5 +22,11 @@ public class PracticalServiceImpl implements PracticalService {
 		
 		return pMapper.insertQna(pvo);
 	}
+
+	@Override
+	public List<PracticalVO> getQnaById(String userId) {
+
+		return pMapper.getQnaById(userId);
+	}
 	
 }

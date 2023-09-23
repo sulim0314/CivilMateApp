@@ -3,6 +3,7 @@ package com.my.newapp;
 import java.io.File;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -34,8 +35,33 @@ public class PracticalController {
 	@Resource(name = "practicalService")
 	private PracticalService pService;
 	
+	@GetMapping("/randomQna")
+	public String randomQna(Model m, HttpSession session) {
+		/*
+		 <div class="row row2">
+						<img src="resources/board_upload/${reviewBoard.rfile}"
+							alt="리뷰 이미지" class="rounded">
+					</div>
+		 
+		 */
+		
+		UserVO uvo = (UserVO)session.getAttribute("loginUser");
+		String userId = uvo.getUserid();
+		
+		List<PracticalVO> qnaList = pService.getQnaById(userId);
+		
+		for(int i=0; i<qnaList.size(); i++) {
+			System.out.println(qnaList.get(i));
+		}
+		
+		m.addAttribute("qna", qnaList);
+		
+		return "practical/randomQna";
+	}
+	
 	@GetMapping("/qnaRegister")
 	public String qnaRegister() {
+		
 		return "practical/qnaRegister";
 	}
 	

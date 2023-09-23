@@ -12,4 +12,10 @@
 		VALUES (#{qno}, #{userid}, #{question}, #{qfile}, #{answer}, #{afile})
 	</insert>
 	
+	<select id="getQnaById" parameterType="String" resultType="Practical">
+		select * from mylist
+		where userid=#{userId}
+		order by qno
+	</select>
+
 </mapper>

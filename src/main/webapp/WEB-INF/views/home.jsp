@@ -66,7 +66,7 @@
 				</a>
 			</div>
 			<div class="col col2">
-				<a href="#" class="btn" id="btn2">실기<br>시험보기
+				<a href="${myctx}/practical/randomQna" class="btn" id="btn2">실기<br>시험보기
 				</a>
 			</div>
 		</div>

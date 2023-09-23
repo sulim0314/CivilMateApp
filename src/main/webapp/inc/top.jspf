@@ -10,9 +10,9 @@
 <meta charset="UTF-8">
 <title>토목기사 메이트</title>
 
-<link rel="shortcut icon" href="<c:url value='resources/favicon.png'/>"
+<link rel="shortcut icon" href="<c:url value='${myctx}/resources/favicon.png'/>"
 	type="image/x-icon" />
-<link rel="icon" href="<c:url value='resources/favicon.png'/>"
+<link rel="icon" href="<c:url value='${myctx}/resources/favicon.png'/>"
 	type="image/x-icon" />
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">

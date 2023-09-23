@@ -16,4 +16,6 @@ public interface PracticalMapper {
 
 	int insertQna(PracticalVO pvo);
 
+	List<PracticalVO> getQnaById(String userId);
+
 }

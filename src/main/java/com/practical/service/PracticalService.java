@@ -12,5 +12,7 @@ public interface PracticalService {
 
 	int insertQna(PracticalVO pvo);
 
+	List<PracticalVO> getQnaById(String userId);
+
 
 }
