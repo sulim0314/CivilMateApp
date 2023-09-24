@@ -61,7 +61,7 @@
 
 <body>
 	<div class="title">필기 시험 결과</div>
-	<div class="explain1">저장한 문제를 확인하실 수 있습니다.</div>
+	<div class="explain1">저장한 시험 결과를 확인하실 수 있습니다.</div>
 
 	<c:forEach items="${savedWrongList}" var="savedWrong">
 	

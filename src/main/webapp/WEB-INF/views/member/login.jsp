@@ -5,6 +5,7 @@
 .container {
 	font-size: 13px;
 	color: #394867;
+	max-width: 500px;
 }
 
 .title {

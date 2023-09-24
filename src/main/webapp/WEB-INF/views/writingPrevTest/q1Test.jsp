@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<head><link rel="stylesheet" href="${myctx}/css/testLayout.css"></head>
 <!-- js 참조 (questions배열 + 이미지 여부) --------------------------------- -->
 <%  String testCha = request.getParameter("testCha");
 
@@ -119,17 +119,23 @@
 	color: #fff;
 }
 
+#btns {
+	max-width: 600px;
+	display: block;
+	margin: 0 auto;
+}
 </style>
 
 <body onload="showQuestion()">
 	
 	<div id="questionContainer"></div>
-		  	
-	<button class="prev">◀ 이전</button>	  	
-	<!-- <button class="check" data-toggle="modal" data-target="#myModal" onclick="checkAnswer()">답 확인</button> -->
-	<button class="check" onclick="checkAnswer(); openModal()">답 확인</button>
-	<button class="next">다음 ▶</button>
-
+	
+	<div id="btns">
+		<button class="prev">◀ 이전</button>	  	
+		<!-- <button class="check" data-toggle="modal" data-target="#myModal" onclick="checkAnswer()">답 확인</button> -->
+		<button class="check" onclick="checkAnswer(); openModal()">답 확인</button>
+		<button class="next">다음 ▶</button>
+	</div>
 
   	<!-- The Modal -->
   	<div class="modal fade" id="myModal">

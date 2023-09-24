@@ -1,9 +1,9 @@
-package com.my.newapp;
+package com.practical.controller;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -14,12 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.practical.model.PracticalVO;
 import com.practical.service.PracticalService;
 import com.user.model.UserVO;
@@ -36,25 +37,35 @@ public class PracticalController {
 	private PracticalService pService;
 	
 	@GetMapping("/randomQna")
-	public String randomQna(Model m, HttpSession session) {
-		/*
-		 <div class="row row2">
-						<img src="resources/board_upload/${reviewBoard.rfile}"
-							alt="리뷰 이미지" class="rounded">
-					</div>
-		 
-		 */
+	public String randomQna(Model m, HttpSession session) throws JsonProcessingException {
 		
 		UserVO uvo = (UserVO)session.getAttribute("loginUser");
 		String userId = uvo.getUserid();
 		
 		List<PracticalVO> qnaList = pService.getQnaById(userId);
 		
-		for(int i=0; i<qnaList.size(); i++) {
-			System.out.println(qnaList.get(i));
-		}
+		ObjectMapper objectMapper = new ObjectMapper();
+		String qnaJson = objectMapper.writeValueAsString(qnaList);
 		
 		m.addAttribute("qna", qnaList);
+		
+		// 랜덤 배열 만들기
+		int num = qnaList.size();
+		
+		if(num > 0) {
+			int[] order = new int[200];
+	        Random rand = new Random();
+
+	        for (int i = 0; i < order.length; i++) {
+	            // nextInt(num)은 0부터 (num-1)까지의 랜덤한 수를 반환
+	        	order[i] = rand.nextInt(num); // 4문제면 0부터 3까지 들어감.
+	        }
+
+	        m.addAttribute("order", order); // 배열 보내기
+		} else {
+	        // QnA 리스트가 비어 있는 경우
+	        m.addAttribute("noQna", true);
+	    }
 		
 		return "practical/randomQna";
 	}
@@ -101,6 +112,8 @@ public class PracticalController {
 			} catch (IOException e) {
 				log.error("파일업로드 에러: " + e);
 			}
+		} else {
+			pvo.setQfile("");
 		}
 		
 		if (!af.isEmpty()) {// 첨부파일이 있다면
@@ -115,6 +128,8 @@ public class PracticalController {
 			} catch (IOException e) {
 				log.error("파일업로드 에러: " + e);
 			}
+		} else {
+			pvo.setAfile("");
 		}
 		
 		pService.insertQna(pvo);

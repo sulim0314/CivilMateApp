@@ -4,12 +4,16 @@
 <style>
 .btn, #test-cha {
 	color: black;
-	display: inline-block;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin: 0 auto;
 	padding: 8px 16px;
 	text-decoration: none;
 	border-radius: 4px;
 	background-color: #B8E7E1;
 	width: 100%;
+	max-width: 400px;
 	height: 1cm;
 	text-align: left;
 	margin-bottom: 10px; /* 버튼 간격 조정을 위한 마진 값 */

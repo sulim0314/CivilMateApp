@@ -47,6 +47,10 @@
 }
 
 .big-box {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 600px;
 	margin-top: 30px;
 	padding-top: 30px;
 	padding-left: 10px;
@@ -60,7 +64,7 @@
 
 	<div class="big-box">
 		<div class="title">My Page</div>
-		<div class="who">${loginUser.name}님의정보</div>
+		<div class="who">${loginUser.name}님의 정보 🔑</div>
 
 		<hr>
 		<div class="row1">

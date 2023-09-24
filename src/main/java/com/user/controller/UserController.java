@@ -1,4 +1,4 @@
-package com.my.newapp;
+package com.user.controller;
 
 import java.util.HashMap;
 import java.util.Map;

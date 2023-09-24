@@ -1,4 +1,4 @@
-package com.my.newapp;
+package com.wrong.controller;
 
 import java.util.Map;
 

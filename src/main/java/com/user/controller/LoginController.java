@@ -1,4 +1,4 @@
-package com.my.newapp;
+package com.user.controller;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;

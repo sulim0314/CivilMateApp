@@ -8,6 +8,7 @@
 .container {
 	font-size:13px;
 	color: #394867;
+	max-width: 600px;
 }
 .title {
 	font-size: 20px;
