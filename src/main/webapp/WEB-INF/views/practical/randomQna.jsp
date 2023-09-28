@@ -66,15 +66,17 @@
 	display: block;
 	margin: 0 auto;
 }
+#answer {
+	margin-bottom: 10px;
+}
 </style>
 
 <body>
-
 	<div id="questionContainer">
+	    <div id="questionDiv"></div>
 	    <div class="imgDiv">
 	    	<img id="questionImage" src="" alt="질문 이미지" class="rounded">
 	    </div>
-	    <div id="questionDiv"></div>
 	</div>
 	<div id="btns">
 		<button class="prev">◀ 이전</button>
@@ -86,31 +88,25 @@
 	<!-- The Modal -->
 	<div class="modal fade" id="myModal">
 		<div class="modal-dialog modal-dialog-centered">
-
 			<div class="modal-content">
-
 				<!-- Modal Header -->
 				<div class="modal-header">정답</div>
-
 				<!-- Modal body -->
 				<div class="modal-body">
+					<div id="answer"></div>
 					<div class="aImgDiv">
 						<img id="answerImg" src="" alt="답 이미지" class="rounded">
 					</div>
-					<div id="answer"></div>
 				</div>
-
 				<!-- Modal footer -->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal" style="font-size: 14px;">확인</button>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
-
+</body>
 	<script>
 	var order = [<c:forEach var="item" items="${order}" varStatus="loop">${item}<c:if test="${!loop.last}">,</c:if></c:forEach>];
     var question = [<c:forEach var="item" items="${qna}" varStatus="loop">"${item.question}"<c:if test="${!loop.last}">,</c:if></c:forEach>];
@@ -185,5 +181,5 @@
 	    }
 	
 	</script>
-</body>
+
 

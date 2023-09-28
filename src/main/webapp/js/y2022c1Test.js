@@ -526,6 +526,7 @@
 			var questionImageElement = document.createElement("img");
 			questionImageElement.className = "question-image";
 
+			// 이미지첨부 방법이 다름
 			var afterIndex = index + 1;
 			if (afterIndex == 1 || afterIndex == 3 || afterIndex == 6 || afterIndex == 7 || afterIndex == 8 
 				|| afterIndex == 9 || afterIndex == 10 || afterIndex == 11 || afterIndex == 13 

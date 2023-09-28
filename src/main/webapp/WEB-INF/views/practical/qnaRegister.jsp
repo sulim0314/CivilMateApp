@@ -69,12 +69,39 @@ textarea {
 	width: 200px;
 	margin-bottom: 10px;
 }
+.mine-div {
+	display: flex;
+	justify-content: center;
+}
+.mine {
+	margin-right: 10px;
+}
+.mine,.go {
+	width: 120px;
+	border-radius: 10px;
+	border: none;
+	background-color: #F78CA2;
+	padding: 8px;
+	padding-left: 13px;
+	padding-right: 13px;
+	margin-top: 25px;
+	font-size: 14px;
+	color: white;
+	margin-bottom: 20px;
+}
+.mine:hover , .go:hover{
+	background-color: pink;
+}
 </style>
 </head>
 
 <body>
-	<div class="big-title">실기 문제 등록</div>
-	<div class="info">나만의 실기 문제를 만들어보세요 :)</div>
+	<div class="big-title">실기 문제 등록 🎨</div>
+	<div class="info">
+		나만의 실기 문제를 만들어보세요 :)<br>
+		실기 시험보기 페이지에서<br>
+		랜덤으로 문제를 풀어볼 수 있습니다.
+	</div>
 	<form action="${myctx}/practical/insertQna" name="pvo" id="pvo"
 		method="post" enctype="multipart/form-data">
 		<!-- 문제 입력 -->
@@ -102,12 +129,15 @@ textarea {
 				<textarea id="a-input" name="answer" placeholder="정답을 입력해주세요"
 					required></textarea>
 			</div>
-		</div>
-		<div class="btn-div">
-			<button type="submit" class="btn btn-info">등록</button>
+			<div class="btn-div">
+				<button type="submit" class="btn btn-info">등록</button>
+			</div>
 		</div>
 	</form>
-
+	<div class="mine-div">
+		<button class="mine">문제보기</button>
+		<button class="go">시험보기</button>
+	</div>
 
 </body>
 <script>
@@ -141,8 +171,9 @@ textarea {
 		}
 	}
 
-	// 나중에 고치기 ***
-	function showNotification() {
-		alert("글이 등록되었습니다!");
-	}
+
+	$('.mine').on('click', function() {
+		window.location.href = '${myctx}/practical/myQna';
+	});
+	
 </script>

@@ -18,4 +18,10 @@ public interface PracticalMapper {
 
 	List<PracticalVO> getQnaById(String userId);
 
+	int deleteQnaByQno(int qno);
+
+	PracticalVO selectQnaByQno(int qno);
+
+	int updateQna(PracticalVO pvo);
+
 }

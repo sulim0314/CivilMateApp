@@ -788,6 +788,7 @@
 			var questionImageElement = document.createElement("img");
 			questionImageElement.className = "question-image";
 
+			// 이미지첨부하는게 더 적어서 일일이 첨부.
 			var afterIndex = index + 1;
 			if (afterIndex == 6 || afterIndex == 10 || afterIndex == 12
 					|| afterIndex == 21 || afterIndex == 23 || afterIndex == 24

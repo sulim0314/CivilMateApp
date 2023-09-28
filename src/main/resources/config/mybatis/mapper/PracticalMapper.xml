@@ -18,4 +18,20 @@
 		order by qno
 	</select>
 
+	<select id="selectQnaByQno" parameterType="int" resultType="Practical">
+		select * from mylist
+		WHERE qno = #{qno}	
+	</select>
+
+	<delete id="deleteQnaByQno" parameterType="int">
+		DELETE FROM mylist
+	    WHERE qno = #{qno}
+	</delete>
+	
+	<update id="updateQna" parameterType="Practical">
+		UPDATE mylist 
+		SET question=#{question},qfile=#{qfile},answer=#{answer}, afile=#{afile}
+		WHERE qno = #{qno}
+	</update>
+
 </mapper>

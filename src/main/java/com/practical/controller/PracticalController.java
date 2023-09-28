@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,16 +37,126 @@ public class PracticalController {
 	@Resource(name = "practicalService")
 	private PracticalService pService;
 	
+	// 수정 폼으로 
+	@GetMapping("/qnaUpdate")
+	public String qnaUpdate(Model m, @RequestParam("qno") int qno) {
+		
+		PracticalVO pvo = pService.selectQnaByQno(qno);
+		
+		m.addAttribute("qno", qno);
+		m.addAttribute("qna", pvo);
+		
+		return "practical/qnaUpdate";
+	}
+	
+	@PostMapping("/updateFinish")
+	public String updateFinish( HttpServletRequest req,
+			@RequestParam(value = "qfile", required = false) MultipartFile qf, 
+			@RequestParam("question") String que,
+			@RequestParam(value = "afile", required = false) MultipartFile af,
+			@RequestParam("answer") String ans, HttpSession session) {
+		
+		String qnoString = (String) req.getParameter("qno");
+		System.out.println(qnoString);
+		int qno = Integer.parseInt(qnoString);
+		PracticalVO pvo = (PracticalVO) pService.selectQnaByQno(qno);
+		String upDir = session.getServletContext().getRealPath("/resources/qna_upload");
+		
+		// 사용자가 업데이트한 것 업데이트해주기
+		UserVO uvo = (UserVO)session.getAttribute("loginUser");
+		PracticalVO newPvo = new PracticalVO();
+		newPvo.setUserid(uvo.getUserid());
+		newPvo.setQuestion(que);
+		newPvo.setAnswer(ans);
+		newPvo.setQno(qno);
+		
+		File dir = new File(upDir);
+		
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		
+		// 새로 등록한 문제 사진이 있을 때
+		if (!qf.isEmpty()) {
+			//원래 첨부한 파일이 있다면 서버에서 삭제 처리
+			if(pvo.getQfile()!=null) {
+				File f = new File(upDir, pvo.getQfile());
+				if(f.exists()) {
+					boolean b = f.delete();
+				}
+			}
+			String qname = qf.getOriginalFilename();
+			UUID uid = UUID.randomUUID();
+			String qfile = uid.toString() + "_" + qname;
+			newPvo.setQfile(qfile);
+			try {
+				qf.transferTo(new File(upDir, qfile));
+			} catch (IOException e) {
+				log.error("파일업로드 에러: " + e);
+			}
+		} else { // 새로 등록한 문제 사진이 없을 때
+			newPvo.setQfile(pvo.getQfile());
+		}
+		
+		if (!af.isEmpty()) {
+			if(pvo.getAfile()!=null) {
+				File f2 = new File(upDir, pvo.getAfile());
+				if(f2.exists()) {
+					boolean b = f2.delete();
+				}
+			}
+			String aname = af.getOriginalFilename();
+			UUID uid = UUID.randomUUID();
+			String afile = uid.toString() + "_" + aname;
+			newPvo.setAfile(afile);
+			try {
+				af.transferTo(new File(upDir, afile));
+			} catch (IOException e) {
+				log.error("파일업로드 에러: " + e);
+			}
+		} else {
+			newPvo.setAfile(pvo.getAfile());
+		}
+		
+		pService.updateQna(newPvo);
+		
+		return "redirect:myQna";
+	}
+	
+	@PostMapping("/deleteMyQna")
+	public String deleteMyQna(Model m, HttpSession session, HttpServletRequest req) {
+		
+		String qnoString = (String) req.getParameter("qno");
+		int qno = Integer.parseInt(qnoString);
+		PracticalVO pvo = (PracticalVO) pService.selectQnaByQno(qno);
+		
+		int n = pService.deleteQnaByQno(qno);
+		String upDir = session.getServletContext().getRealPath("/resources/qna_upload");
+		
+		//서버에 첨부한 파일이 있다면 서버에서 삭제 처리
+		if(n>0 && pvo.getQfile()!=null) {
+			File f = new File(upDir, pvo.getQfile());
+			if(f.exists()) {
+				boolean b = f.delete();
+			}
+		}
+		if(n>0 && pvo.getAfile()!=null) {
+			File f = new File(upDir, pvo.getAfile());
+			if(f.exists()) {
+				boolean b = f.delete();
+			}
+		}
+		
+		return "redirect:myQna";
+	}
+	
 	@GetMapping("/randomQna")
-	public String randomQna(Model m, HttpSession session) throws JsonProcessingException {
+	public String randomQna(Model m, HttpSession session) {
 		
 		UserVO uvo = (UserVO)session.getAttribute("loginUser");
 		String userId = uvo.getUserid();
 		
 		List<PracticalVO> qnaList = pService.getQnaById(userId);
-		
-		ObjectMapper objectMapper = new ObjectMapper();
-		String qnaJson = objectMapper.writeValueAsString(qnaList);
 		
 		m.addAttribute("qna", qnaList);
 		
@@ -76,13 +187,32 @@ public class PracticalController {
 		return "practical/qnaRegister";
 	}
 	
+	@GetMapping("/myQna")
+	public String myQna(Model m, HttpSession session) throws JsonProcessingException {
+		
+		UserVO uvo = (UserVO)session.getAttribute("loginUser");
+		String userId = uvo.getUserid();
+		
+		List<PracticalVO> qnaList = pService.getQnaById(userId);
+		
+		int num = qnaList.size();
+		
+		if(num > 0) {
+			m.addAttribute("qna", qnaList);
+			m.addAttribute("noQna", false);
+		} else {
+	        // QnA 리스트가 비어 있는 경우
+	        m.addAttribute("noQna", true);
+	    }
+		return "practical/myQna";
+	}
+	
 	@PostMapping("/insertQna")
 	public String insertQna(
 			@RequestParam(value = "qfile", required = false) MultipartFile qf, 
 			@RequestParam("question") String que,
 			@RequestParam(value = "afile", required = false) MultipartFile af,
 			@RequestParam("answer") String ans, HttpSession session) {
-		System.out.println("안들어오나용");
 		UserVO uvo = (UserVO)session.getAttribute("loginUser");
 		
 		PracticalVO pvo = new PracticalVO();
