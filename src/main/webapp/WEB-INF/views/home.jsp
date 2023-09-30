@@ -44,7 +44,7 @@
 </style>
 
 <body>
-	<h1 class="mainImage" style="text-align: center"><img src="images/병아리.png" width="80px;"></h1>
+	<h1 class="mainImage" style="text-align: center"><img src="${myctx}/images/병아리.png" width="80px;"></h1>
 
 	<div class="box">
 		<div class="row row1">

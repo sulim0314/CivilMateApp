@@ -142,7 +142,8 @@
 	<div id="questionContainer"></div>
 		
 	<button class="btn-submit" id="btn-submit" onclick="submitQuiz()">제출하기</button>
-	<!-- ------------------------------------ -->
+</body>
+<!-- ------------------------------------ -->
 	<script>
 		function showQuestion() {
 			var questionContainer = document
@@ -301,4 +302,3 @@
 		} // submitQuiz()------------------------
 		
 	</script>
-</body>

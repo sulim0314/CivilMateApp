@@ -175,5 +175,8 @@ textarea {
 	$('.mine').on('click', function() {
 		window.location.href = '${myctx}/practical/myQna';
 	});
+	$('.go').on('click', function() {
+		window.location.href = '${myctx}/practical/randomQna';
+	});
 	
 </script>
