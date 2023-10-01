@@ -890,7 +890,7 @@
 			var afterIndex = index + 1;
 			if (afterIndex == 1 || (8<=afterIndex && afterIndex<=20) ) {
 
-				var imagePath = "${myctx}/images/y20??c?Images/y20??c?_"
+				var imagePath = "/images/y20??c?Images/y20??c?_"
 						+ (index + 1) + ".png";
 				questionImageElement.src = imagePath;
 				questionDiv.appendChild(questionImageElement);
