@@ -12,7 +12,7 @@
 }
 
 .btn-info {
-	border-radius: 30px;
+	border-radius: 5px;
 	padding: 5px;
 	width: 80px;
 	margin-top: 20px;
@@ -31,7 +31,7 @@
 
 .btn-div {
 	display: flex;
-	justify-content: center;
+	justify-content: right;
 }
 
 .info {
@@ -78,7 +78,7 @@ textarea {
 }
 .mine,.go {
 	width: 120px;
-	border-radius: 10px;
+	border-radius: 5px;
 	border: none;
 	background-color: #F78CA2;
 	padding: 8px;
@@ -88,10 +88,26 @@ textarea {
 	font-size: 14px;
 	color: white;
 	margin-bottom: 20px;
+	transition: background-color 0.3s;
 }
 .mine:hover , .go:hover{
 	background-color: pink;
 }
+.input-file-btn {
+	border-radius: 5px;
+	background-color: #17a2b8;
+	color: white;
+	padding: 7px;
+	width: 150px;
+	height: 35px;
+	font-size: 15px;
+	text-align: center;
+	transition: background-color 0.4s;
+}
+.input-file-btn:hover {
+	background-color: #176B87;
+}
+
 </style>
 </head>
 
@@ -110,8 +126,9 @@ textarea {
 				<img class="rounded" id="q-preview" alt="Uploaded Question Image">
 			</div>
 			<div class="question-img-box">
+				<label class="input-file-btn" for="qfile">문제 사진 선택</label>
 				<input type="file" name="qfile" id="qfile" class="qfile"
-					onchange="showPreview1(event)">
+					onchange="showPreview1(event)" style="display: none">
 			</div>
 			<div class="question-input">
 				<textarea id="q-input" name="question" placeholder="문제를 입력해주세요"
@@ -122,8 +139,9 @@ textarea {
 				<img class="rounded" id="a-preview" alt="Uploaded Answer Image">
 			</div>
 			<div class="answer-img-box">
+				<label class="input-file-btn" for="afile">정답 사진 선택</label>
 				<input type="file" name="afile" id="afile" class="afile"
-					onchange="showPreview2(event)">
+					onchange="showPreview2(event)" style="display: none">
 			</div>
 			<div class="answer-input">
 				<textarea id="a-input" name="answer" placeholder="정답을 입력해주세요"
