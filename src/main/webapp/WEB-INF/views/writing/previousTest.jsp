@@ -73,7 +73,7 @@
 			<option value="y2020c3">20년도 3회</option>
 			<option value="y2020c12">20년도 1,2회</option>
 			
-			<option value="y2019c3">19년도 3회</option>
+			<!-- <option value="y2019c3">19년도 3회</option>
 			<option value="y2019c2">19년도 2회</option>
 			<option value="y2019c1">19년도 1회</option>
 			
@@ -111,7 +111,7 @@
 			
 			<option value="y2010c4">10년도 4회</option>
 			<option value="y2010c2">10년도 2회</option>
-			<option value="y2010c1">10년도 1회</option>
+			<option value="y2010c1">10년도 1회</option> -->
 		</select>
 	</form>
 
